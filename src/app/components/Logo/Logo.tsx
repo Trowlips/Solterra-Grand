@@ -40,6 +40,7 @@ function Logo(props: LogoPropTypes) {
                 text-xl font-semibold text-primary-100 transition-[font]
                 md:text-[1.5rem]
                 lg:text-[1.8rem]
+                xl:text-[2rem]
                 "
             >
                 Solterra Grand

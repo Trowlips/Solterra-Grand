@@ -1,14 +1,16 @@
-import { Bars3Icon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import Logo from "../logo/Logo";
+import Sidebar from "../sidebar/Sidebar";
 
 export default function Header() {
-    // console.log();
 
     return (
         <header
             className="
-            w-screen flex px-3 pt-3 sm:justify-center"
+            absolute
+            w-screen flex px-3 pt-3 sm:justify-center m-auto
+            xl:w-11/12
+            "
         >
             <div
                 className="
@@ -22,6 +24,10 @@ export default function Header() {
                         className="
                             list-none flex flex-row justify-around items-center
                             text-[.9rem] w-full
+                            md:text-[1rem]
+                            lg:text-[1.2rem]
+                            xl:text-[1.3rem]
+                            [&>li]:hover:opacity-70
                             "
                     >
                         <li>
@@ -31,24 +37,21 @@ export default function Header() {
                             <Link href="/#">Residence</Link>
                         </li>
                         <li>
+                            <Link href="/#">Terrace</Link>
+                        </li>
+                        <li>
                             <Link href="/#">About</Link>
                         </li>
-                        <li
+                        {/* <li
                             className="border rounded text-center transition-all
                             hover:bg-slate-400 hover:text-white
                             sm:px-1 sm:py-1"
                         >
                             <Link href="/#">Book now!</Link>
-                        </li>
+                        </li> */}
                     </ul>
                 </nav>
-                <Bars3Icon
-                    className="
-                        h-5 w-5 cursor-pointer rounded-full transition-opacity duration-500
-                        ss:h-8 ss:w-8
-                        hover:opacity-50
-                    "
-                />
+                <Sidebar />
             </div>
         </header>
     );
