@@ -1,24 +1,58 @@
 import Link from "next/link";
-import Logo from "../Logo/Logo";
+import Logo from "../logo/Logo";
+import Sidebar from "../sidebar/Sidebar";
 
 export default function Header() {
+
     return (
-        <header className="flex px-3 py-3 ss:px-5 ss:py-5 justify-between items-center bg-transparent">
-            <Logo />
-            <span className="sm:hidden">+</span>
-            <nav className="hidden sm:flex lg:min-w-full">
-                <ul className="list-none flex flex-row justify-around gap-5 bg-red-300">
-                    <li>
-                        <Link href="/#">Home</Link>
-                    </li>
-                    <li>
-                        <Link href="/#">Residence</Link>
-                    </li>
-                    <li>
-                        <Link href="/#">About</Link>
-                    </li>
-                </ul>
-            </nav>
+        <header
+            className="
+            absolute
+            w-screen flex px-3 pt-3 sm:justify-center m-auto
+            xl:w-11/12
+            "
+        >
+            <div
+                className="
+                    flex flex-row w-full justify-between items-center
+                    sm:w-11/12
+                    "
+            >
+                <Logo />
+                <nav className="hidden sm:flex w-2/4">
+                    <ul
+                        className="
+                            list-none flex flex-row justify-around items-center
+                            text-[.9rem] w-full
+                            md:text-[1rem]
+                            lg:text-[1.2rem]
+                            xl:text-[1.3rem]
+                            [&>li]:hover:opacity-70
+                            "
+                    >
+                        <li>
+                            <Link href="/#">Home</Link>
+                        </li>
+                        <li>
+                            <Link href="/#">Residence</Link>
+                        </li>
+                        <li>
+                            <Link href="/#">Terrace</Link>
+                        </li>
+                        <li>
+                            <Link href="/#">About</Link>
+                        </li>
+                        {/* <li
+                            className="border rounded text-center transition-all
+                            hover:bg-slate-400 hover:text-white
+                            sm:px-1 sm:py-1"
+                        >
+                            <Link href="/#">Book now!</Link>
+                        </li> */}
+                    </ul>
+                </nav>
+                <Sidebar />
+            </div>
         </header>
     );
 }
