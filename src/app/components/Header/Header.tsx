@@ -3,7 +3,6 @@ import Logo from "../logo/Logo";
 import Sidebar from "../sidebar/Sidebar";
 
 export default function Header() {
-
     return (
         <header
             className="
@@ -22,12 +21,12 @@ export default function Header() {
                 <nav className="hidden sm:flex w-2/4">
                     <ul
                         className="
-                            list-none flex flex-row justify-around items-center
-                            text-[.9rem] w-full
+                            z-10 list-none flex flex-row justify-around items-center
+                            text-[.9rem] w-full text-white
                             md:text-[1rem]
                             lg:text-[1.2rem]
                             xl:text-[1.3rem]
-                            [&>li]:hover:opacity-70
+                            [&>li]:hover:scale-120 [&>li]:transition-all
                             "
                     >
                         <li>

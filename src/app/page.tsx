@@ -7,14 +7,20 @@ export default function Home() {
             <main className="h-screen">
                 <div
                     className="
-					bg-gray-600 h-11/12 w-screen flex flex-row justify-center items-center"
+					bg-gray-600 h-11/12 w-screen flex justify-center items-center"
                 >
-                    <span className="text-white">VIDEO CONTENT HERE</span>
+                    <video
+                        src={"/PV.mp4"}
+                        autoPlay
+                        muted
+                        loop
+                        className="w-screen h-full object-cover"
+                    />
                 </div>
 
                 <div className="flex flex-row justify-center">
-					<h2>Hello world</h2>
-				</div>
+                    <h2>Hello world</h2>
+                </div>
             </main>
         </div>
     );

@@ -9,8 +9,8 @@ function Sidebar() {
             <Bars3Icon
                 onClick={() => setIsSideBarOpen((prev) => !prev)}
                 className={`
-                    absolute z-10 top-0 right-0 h-full w-8 transition-transform duration-500 ease-in-out transform-gpu backface-hidden cursor-pointer
-                    hover:scale-110
+                    absolute z-10 top-0 right-0 h-full w-8 transition-transform duration-500 ease-in-out transform-gpu backface-hidden cursor-pointer text-white
+                    hover:scale-120
                     xl:h-20 xl:top-2 xl:right-9
                     2xl:right-12
                     ${
