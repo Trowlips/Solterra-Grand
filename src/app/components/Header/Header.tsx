@@ -1,8 +1,14 @@
+"use client";
+
 import Link from "next/link";
 import Logo from "../logo/Logo";
 import Sidebar from "../sidebar/Sidebar";
+import { useSwiper } from "swiper/react";
 
 export default function Header() {
+    const swiper = useSwiper();
+    console.log("SWIPER: ", swiper?.activeIndex);
+
     return (
         <header
             className="
