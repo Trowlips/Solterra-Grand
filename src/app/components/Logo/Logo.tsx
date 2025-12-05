@@ -37,7 +37,7 @@ function Logo(props: LogoPropTypes) {
             </div>
             <span
                 className="
-                text-xl font-semibold text-primary-100 transition-[font]
+                text-xl font-semibold text-primary-100 text-white transition-[font]
                 md:text-[1.5rem]
                 lg:text-[1.8rem]
                 xl:text-[2rem]
