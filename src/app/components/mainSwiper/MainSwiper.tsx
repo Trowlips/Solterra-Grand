@@ -20,15 +20,7 @@ function MainSwiper() {
             onSlideChange={(e) => console.log(e)}
         >
             <SwiperSlide>
-                <div className="h-screen w-screen flex justify-center items-center">
-                    <video
-                        src={"/PV.mp4"}
-                        autoPlay
-                        muted
-                        loop
-                        className="w-screen h-full object-cover"
-                    />
-                </div>
+                
             </SwiperSlide>
             <SwiperSlide>
                 <div
