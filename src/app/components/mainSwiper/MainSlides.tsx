@@ -1,0 +1,31 @@
+import React from "react";
+import { SwiperSlide } from "swiper/react";
+import FrontSlide from "./FrontSlide";
+
+function MainSlides() {
+    return (
+        <div>
+            <SwiperSlide>
+                <FrontSlide />
+            </SwiperSlide>
+            <SwiperSlide>
+                <div
+                    className="flex flex-col justify-center items-center h-screen w-screen bg-amber-300
+                "
+                >
+                    <h2>Slide 2</h2>
+                    <div>
+                        <button>Next</button>
+                    </div>
+                </div>
+            </SwiperSlide>
+            <SwiperSlide>
+                <div className="swiper-slide flex flex-row justify-center bg-sky-200">
+                    <h2>Slide 3</h2>
+                </div>
+            </SwiperSlide>
+        </div>
+    );
+}
+
+export default MainSlides;

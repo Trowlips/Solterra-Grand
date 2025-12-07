@@ -1,8 +1,10 @@
 "use client";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
-import { Mousewheel, Pagination, Scrollbar } from "swiper/modules";
+import { Mousewheel, Pagination, Parallax, Scrollbar } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import FrontSlide from "./FrontSlide";
+import TerraceSlide from "./TerraceSlide";
 
 function MainSwiper() {
     return (
@@ -12,26 +14,18 @@ function MainSwiper() {
             //     hide: true,
             // }}
             slidesPerView={1}
-            spaceBetween={30}
             mousewheel={true}
-            speed={1000}
-            modules={[Mousewheel]}
+            pagination={{clickable: true }}
+            speed={1500}
+            modules={[Mousewheel, Parallax, Pagination]}
             className="mySwiper"
             onSlideChange={(e) => console.log(e)}
         >
             <SwiperSlide>
-                
+                <FrontSlide />
             </SwiperSlide>
             <SwiperSlide>
-                <div
-                    className="flex flex-col justify-center items-center h-screen w-screen bg-amber-300
-                "
-                >
-                    <h2>Slide 2</h2>
-                    <div>
-                        <button>Next</button>
-                    </div>
-                </div>
+                <TerraceSlide />
             </SwiperSlide>
             <SwiperSlide>
                 <div className="swiper-slide flex flex-row justify-center bg-sky-200">
