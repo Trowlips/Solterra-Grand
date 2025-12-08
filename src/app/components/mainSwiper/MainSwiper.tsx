@@ -1,12 +1,18 @@
 "use client";
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
-import { Mousewheel, Pagination, Parallax, Scrollbar } from "swiper/modules";
+import { Dispatch, SetStateAction } from "react";
+import type { Swiper as SwiperType } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
+import { Mousewheel, Pagination, Parallax } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 import FrontSlide from "./FrontSlide";
 import TerraceSlide from "./TerraceSlide";
 
-function MainSwiper() {
+type MainSwiperType = {
+    setSwiper?: Dispatch<SetStateAction<SwiperType | null>>;
+};
+
+function MainSwiper(props: MainSwiperType) {
     return (
         <Swiper
             direction="vertical"
@@ -15,11 +21,12 @@ function MainSwiper() {
             // }}
             slidesPerView={1}
             mousewheel={true}
-            pagination={{clickable: true }}
+            pagination={{ clickable: true }}
             speed={1500}
             modules={[Mousewheel, Parallax, Pagination]}
             className="mySwiper"
-            onSlideChange={(e) => console.log(e)}
+            // onSlideChange={(e) => console.log(e)}
+            onSwiper={props.setSwiper}
         >
             <SwiperSlide>
                 <FrontSlide />

@@ -4,8 +4,6 @@ function TerraceSlide() {
     const swiper = useSwiper();
     const { isActive, isPrev, isNext } = useSwiperSlide();
 
-    console.log(isActive, isPrev, isNext);
-
     return (
         <div
             className="flex flex-col justify-center items-center h-screen w-screen bg-amber-300
@@ -27,7 +25,12 @@ function TerraceSlide() {
                 Slide 2
             </h2>
             <div>
-                <button className="" onClick={() => swiper.slideNext()}>Next</button>
+                <button
+                    className=""
+                    onClick={() => swiper.setProgress(0, 500)}
+                >
+                    Next
+                </button>
             </div>
         </div>
     );
