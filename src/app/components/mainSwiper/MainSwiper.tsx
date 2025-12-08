@@ -1,10 +1,18 @@
 "use client";
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
-import { Mousewheel, Pagination, Scrollbar } from "swiper/modules";
+import { Dispatch, SetStateAction } from "react";
+import type { Swiper as SwiperType } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
+import { Mousewheel, Pagination, Parallax } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import FrontSlide from "./FrontSlide";
+import TerraceSlide from "./TerraceSlide";
 
-function MainSwiper() {
+type MainSwiperType = {
+    setSwiper?: Dispatch<SetStateAction<SwiperType | null>>;
+};
+
+function MainSwiper(props: MainSwiperType) {
     return (
         <Swiper
             direction="vertical"
@@ -12,34 +20,19 @@ function MainSwiper() {
             //     hide: true,
             // }}
             slidesPerView={1}
-            spaceBetween={30}
             mousewheel={true}
-            speed={1000}
-            modules={[Mousewheel]}
+            pagination={{ clickable: true }}
+            speed={1500}
+            modules={[Mousewheel, Parallax, Pagination]}
             className="mySwiper"
-            onSlideChange={(e) => console.log(e)}
+            // onSlideChange={(e) => console.log(e)}
+            onSwiper={props.setSwiper}
         >
             <SwiperSlide>
-                <div className="h-screen w-screen flex justify-center items-center">
-                    <video
-                        src={"/PV.mp4"}
-                        autoPlay
-                        muted
-                        loop
-                        className="w-screen h-full object-cover"
-                    />
-                </div>
+                <FrontSlide />
             </SwiperSlide>
             <SwiperSlide>
-                <div
-                    className="flex flex-col justify-center items-center h-screen w-screen bg-amber-300
-                "
-                >
-                    <h2>Slide 2</h2>
-                    <div>
-                        <button>Next</button>
-                    </div>
-                </div>
+                <TerraceSlide />
             </SwiperSlide>
             <SwiperSlide>
                 <div className="swiper-slide flex flex-row justify-center bg-sky-200">

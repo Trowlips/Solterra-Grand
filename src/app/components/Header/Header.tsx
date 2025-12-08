@@ -1,13 +1,24 @@
-"use client";
-
 import Link from "next/link";
 import Logo from "../logo/Logo";
 import Sidebar from "../sidebar/Sidebar";
-import { useSwiper } from "swiper/react";
+import type { Swiper as SwiperType } from "swiper";
 
-export default function Header() {
-    const swiper = useSwiper();
-    console.log("SWIPER: ", swiper?.activeIndex);
+type HeaderTypes = {
+    swiper: SwiperType | null;
+};
+
+export default function Header(props: HeaderTypes) {
+    const { swiper } = props;
+
+    if (swiper) {
+        console.log("Header Swiper: ", swiper);
+    } else {
+        console.log("NO SWIPER");
+    }
+
+    function handleSetSlide(slide: number) {
+        if (swiper) swiper.setProgress(slide, 500);
+    }
 
     return (
         <header
@@ -36,7 +47,9 @@ export default function Header() {
                             "
                     >
                         <li>
-                            <Link href="/#">Home</Link>
+                            <button onClick={() => handleSetSlide(0)}>
+                                Home
+                            </button>
                         </li>
                         <li>
                             <Link href="/#">Residence</Link>
