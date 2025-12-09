@@ -1,8 +1,14 @@
 "use client";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
+import type { Swiper as SwiperType } from "swiper";
 
-function Sidebar() {
+type SideBarPropTypes = {
+    swiper: SwiperType | null;
+};
+
+function Sidebar(props: SideBarPropTypes) {
+    const { swiper } = props;
     const [isSideBarOpen, setIsSideBarOpen] = useState(false);
     return (
         <div className="relative h-full xl:static">

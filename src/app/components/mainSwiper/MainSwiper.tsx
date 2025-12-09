@@ -3,16 +3,20 @@ import { Dispatch, SetStateAction } from "react";
 import type { Swiper as SwiperType } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Mousewheel, Pagination, Parallax } from "swiper/modules";
+import { Controller, Mousewheel, Pagination, Parallax } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import FrontSlide from "./FrontSlide";
 import TerraceSlide from "./TerraceSlide";
 
+import "./styles.css";
+
 type MainSwiperType = {
-    setSwiper?: Dispatch<SetStateAction<SwiperType | null>>;
+    setSwiper: Dispatch<SetStateAction<SwiperType | null>>;
+    setActiveIndex: Dispatch<SetStateAction<number>>;
 };
 
 function MainSwiper(props: MainSwiperType) {
+    const { setSwiper, setActiveIndex } = props;
     return (
         <Swiper
             direction="vertical"
@@ -23,10 +27,10 @@ function MainSwiper(props: MainSwiperType) {
             mousewheel={true}
             pagination={{ clickable: true }}
             speed={1500}
-            modules={[Mousewheel, Parallax, Pagination]}
+            modules={[Mousewheel, Parallax, Pagination, Controller]}
             className="mySwiper"
-            // onSlideChange={(e) => console.log(e)}
-            onSwiper={props.setSwiper}
+            onSwiper={setSwiper}
+            onActiveIndexChange={(e) => setActiveIndex(e.activeIndex)}
         >
             <SwiperSlide>
                 <FrontSlide />

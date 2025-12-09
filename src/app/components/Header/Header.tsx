@@ -1,32 +1,37 @@
+"use client";
 import Link from "next/link";
 import Logo from "../logo/Logo";
 import Sidebar from "../sidebar/Sidebar";
 import type { Swiper as SwiperType } from "swiper";
+import { useEffect, useState } from "react";
 
 type HeaderTypes = {
     swiper: SwiperType | null;
+    activeIndex: number;
 };
 
 export default function Header(props: HeaderTypes) {
-    const { swiper } = props;
-
-    if (swiper) {
-        console.log("Header Swiper: ", swiper);
-    } else {
-        console.log("NO SWIPER");
-    }
+    const { swiper, activeIndex } = props;
 
     function handleSetSlide(slide: number) {
-        if (swiper) swiper.setProgress(slide, 500);
+        console.log("active: ", swiper?.activeIndex, " Slide: ", slide);
+        if (swiper && swiper.activeIndex !== slide) {
+            swiper.slideTo(slide);
+        }
     }
 
     return (
         <header
-            className="
-            absolute
-            w-screen flex px-3 pt-3 sm:justify-center m-auto
-            xl:w-11/12
-            "
+            className={`
+                absolute
+                w-screen flex px-3 pt-3 sm:justify-center m-auto z-20
+                transition-all
+                ${
+                    activeIndex !== 0
+                        ? "bg-slate-400 pb-2 delay-500 duration-1000"
+                        : "bg-transparent delay-500 duration-1000"
+                }
+            `}
         >
             <div
                 className="
@@ -52,24 +57,21 @@ export default function Header(props: HeaderTypes) {
                             </button>
                         </li>
                         <li>
-                            <Link href="/#">Residence</Link>
+                            <button onClick={() => handleSetSlide(1)}>
+                                Terrace
+                            </button>
                         </li>
                         <li>
-                            <Link href="/#">Terrace</Link>
+                            <button onClick={() => handleSetSlide(2)}>
+                                Residence
+                            </button>
                         </li>
                         <li>
                             <Link href="/#">About</Link>
                         </li>
-                        {/* <li
-                            className="border rounded text-center transition-all
-                            hover:bg-slate-400 hover:text-white
-                            sm:px-1 sm:py-1"
-                        >
-                            <Link href="/#">Book now!</Link>
-                        </li> */}
                     </ul>
                 </nav>
-                <Sidebar />
+                <Sidebar swiper={swiper}/>
             </div>
         </header>
     );
