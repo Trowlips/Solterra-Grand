@@ -5,18 +5,18 @@ import Icon from "@/app/icon.png";
 
 type LogoPropTypes = {
     className?: string;
+    activeIndex?: number;
 };
 
 function Logo(props: LogoPropTypes) {
-    const { className } = props
+    const { className, activeIndex } = props;
     return (
         <Link
             href="/"
             className={
                 `flex justify-center items-center gap-4 z-10 h-10
                 ss:h-15
-                sm:h-18 ` +
-                className
+                sm:h-18 ` + className
             }
         >
             <div
@@ -36,14 +36,18 @@ function Logo(props: LogoPropTypes) {
                 />
             </div>
             <span
-                className="
-                text-xl font-semibold text-primary-100 text-white transition-[font]
-                md:text-[1.5rem]
-                lg:text-[1.8rem]
-                xl:text-[2rem]
-                "
+                className={`
+                    text-xl font-semibold text-primary-100 text-white transition-[font]
+                    md:text-[1.5rem]
+                    lg:text-[1.8rem]
+                    xl:text-[2rem]
+                    ${activeIndex
+                            ? "text-slate-900"
+                            : "text-slate-900 lg:text-white"
+                    }
+                `}
             >
-                Solterra Grand
+                Solterra <span className="text-teal-600">GRAND</span>
             </span>
         </Link>
     );

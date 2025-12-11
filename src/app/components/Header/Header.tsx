@@ -1,9 +1,8 @@
 "use client";
 import Link from "next/link";
+import type { Swiper as SwiperType } from "swiper";
 import Logo from "../logo/Logo";
 import Sidebar from "../sidebar/Sidebar";
-import type { Swiper as SwiperType } from "swiper";
-import { useEffect, useState } from "react";
 
 type HeaderTypes = {
     swiper: SwiperType | null;
@@ -24,12 +23,12 @@ export default function Header(props: HeaderTypes) {
         <header
             className={`
                 absolute
-                w-screen flex px-3 pt-3 sm:justify-center m-auto z-20
+                w-screen flex px-3 sm:justify-center m-auto z-20
                 transition-all
                 ${
                     activeIndex !== 0
-                        ? "bg-slate-400 pb-2 delay-500 duration-1000"
-                        : "bg-transparent delay-500 duration-1000"
+                        ? "bg-slate-400 delay-500 duration-1000 py-2"
+                        : "bg-transparent delay-500 duration-1000 py-1"
                 }
             `}
         >
@@ -39,7 +38,7 @@ export default function Header(props: HeaderTypes) {
                     sm:w-11/12
                     "
             >
-                <Logo />
+                <Logo activeIndex={activeIndex} />
                 <nav className="hidden sm:flex w-2/4">
                     <ul
                         className="
@@ -71,7 +70,7 @@ export default function Header(props: HeaderTypes) {
                         </li>
                     </ul>
                 </nav>
-                <Sidebar swiper={swiper}/>
+                <Sidebar swiper={swiper} />
             </div>
         </header>
     );
