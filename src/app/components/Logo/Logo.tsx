@@ -6,25 +6,25 @@ import Icon from "@/app/icon.png";
 type LogoPropTypes = {
     className?: string;
     activeIndex?: number;
+    toTheTop: () => void;
 };
 
 function Logo(props: LogoPropTypes) {
-    const { className, activeIndex } = props;
+    const { className, activeIndex, toTheTop } = props;
     return (
-        <Link
-            href="/"
+        <button
+            onClick={toTheTop}
             className={
-                `flex justify-center items-center gap-4 z-10 h-10
+                `flex justify-center items-center gap-4 z-10 h-10 cursor-pointer
                 ss:h-15
                 sm:h-18 ` + className
             }
         >
             <div
                 className="
-                relative h-10 w-10 transition-[height/width]
+                relative h-10 w-10 transition-[height,width]
                 ss:h-15 ss:w-15
                 sm:h-18 sm:w-18
-                
                 "
             >
                 <Image
@@ -37,19 +37,16 @@ function Logo(props: LogoPropTypes) {
             </div>
             <span
                 className={`
-                    text-xl font-semibold text-primary-100 text-white transition-[font]
+                    text-xl font-semibold text-primary-100 transition-colors duration-1000
                     md:text-[1.5rem]
                     lg:text-[1.8rem]
                     xl:text-[2rem]
-                    ${activeIndex
-                            ? "text-slate-900"
-                            : "text-slate-900 lg:text-white"
-                    }
+                    ${Boolean(activeIndex) ? "text-slate-900" : "text-white"}
                 `}
             >
                 Solterra <span className="text-teal-600">GRAND</span>
             </span>
-        </Link>
+        </button>
     );
 }
 

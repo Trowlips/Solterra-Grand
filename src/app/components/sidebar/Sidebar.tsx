@@ -5,17 +5,18 @@ import type { Swiper as SwiperType } from "swiper";
 
 type SideBarPropTypes = {
     swiper: SwiperType | null;
+    activeIndex?: number;
 };
 
 function Sidebar(props: SideBarPropTypes) {
-    const { swiper } = props;
+    const { swiper, activeIndex } = props;
     const [isSideBarOpen, setIsSideBarOpen] = useState(false);
     return (
         <div className="relative h-full xl:static">
             <Bars3Icon
                 onClick={() => setIsSideBarOpen((prev) => !prev)}
                 className={`
-                    absolute z-10 top-0 right-0 h-full w-8 transition-transform duration-500 ease-in-out transform-gpu backface-hidden cursor-pointer text-white
+                    absolute z-10 top-0 right-0 h-full w-8 transition-transform duration-500 ease-in-out transform-gpu backface-hidden cursor-pointer text-teal-600
                     hover:scale-120
                     xl:h-20 xl:top-2 xl:right-9
                     2xl:right-12
@@ -24,8 +25,10 @@ function Sidebar(props: SideBarPropTypes) {
                             ? "opacity-0 scale-20"
                             : "opacity-100 scale-100"
                     }
+                    
                     `}
             />
+            {/* ${Boolean(activeIndex) ? "text-black" : "text-white"} */}
             {/* <span>{`${isSideBarOpen}`}</span> */}
 
             <div
@@ -34,7 +37,7 @@ function Sidebar(props: SideBarPropTypes) {
                     px-3 pt-3
                     lg:w-2/5
                     xl:w-1/4
-                    ${isSideBarOpen ? "" : "translate-x-full"}
+                    ${isSideBarOpen ? "opacity-100" : "translate-x-full opacity-0"}
                     `}
             >
                 <div
