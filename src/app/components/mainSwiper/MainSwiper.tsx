@@ -14,14 +14,12 @@ import PoolSlide from "./slides/PoolSlide";
 
 type MainSwiperType = {
     setSwiper: Dispatch<SetStateAction<SwiperType | null>>;
+    activeIndex: number;
     setActiveIndex: Dispatch<SetStateAction<number>>;
 };
 
 function MainSwiper(props: MainSwiperType) {
-    const { setSwiper, setActiveIndex } = props;
-    const swiper = useSwiper();
-
-    console.log(swiper);
+    const { setSwiper, activeIndex, setActiveIndex } = props;
 
     return (
         <Swiper
@@ -34,10 +32,17 @@ function MainSwiper(props: MainSwiperType) {
             pagination={{ clickable: true }}
             speed={1500}
             modules={[Mousewheel, Parallax, Pagination, Controller]}
-            className="
+            className={`
                 mySwiper
-                [&_.swiper-pagination-bullet]:bg-red-300!
-            "
+                [&_.swiper-pagination-bullet]:first:hidden!
+                [&_.swiper-pagination-bullets]:transition-all!
+                [&_.swiper-pagination-bullets]:duration-1000!
+                ${
+                    Boolean(activeIndex)
+                        ? "[&_.swiper-pagination-bullets]:opacity-100 [&_.swiper-pagination-bullets]:left-1!"
+                        : "[&_.swiper-pagination-bullets]:-left-10! [&_.swiper-pagination-bullets]:opacity-0"
+                }    
+            `}
             onSwiper={setSwiper}
             onActiveIndexChange={(e) => setActiveIndex(e.activeIndex)}
         >
