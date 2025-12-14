@@ -32,6 +32,12 @@ function MainSwiper(props: MainSwiperType) {
             pagination={{ clickable: true }}
             speed={1500}
             modules={[Mousewheel, Parallax, Pagination, Controller]}
+            simulateTouch={false}
+            breakpoints={{
+                1024: {
+                    allowTouchMove: false,
+                },
+            }}
             className={`
                 mySwiper
                 [&_.swiper-pagination-bullet]:first:hidden!

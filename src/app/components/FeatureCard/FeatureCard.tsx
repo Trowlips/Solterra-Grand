@@ -58,7 +58,11 @@ function FeatureCard(props: FeatureCardPropType) {
     const { children, className } = props;
     return (
         <div
-            className={`flex items-center bg-slate-50 rounded-xl border border-slate-100 overflow-hidden transition-all hover:shadow-lg group` + " " + className}
+            className={
+                `flex items-center bg-slate-50 rounded-xl border border-slate-100 overflow-hidden transition-all hover:shadow-lg group` +
+                " " +
+                className
+            }
         >
             {children}
         </div>
@@ -94,10 +98,10 @@ type ContentContainerPropTypes = {
 function ContentContainer(props: ContentContainerPropTypes) {
     const { title, description, titleClass, descriptionClass } = props;
     return (
-        <div className="w-full md:w-1/2 h-full py-1">
+        <div className="w-full md:w-1/2 h-full py-3 sm:py-4 sm:px-1">
             <h3
                 className={
-                    `text-[.7rem] font-semibold font-serif text-slate-800 mb-1 sm:text-[1rem]` +
+                    `text-[.6rem] font-semibold font-serif text-slate-800 mb-1 ss:text-[.8rem] sm:text-[1rem]` +
                     " " +
                     titleClass
                 }
@@ -107,7 +111,7 @@ function ContentContainer(props: ContentContainerPropTypes) {
             <p
                 className={
                     descriptionClass +
-                    ` text-slate-600 leading-normal text-[.5rem] text-left px-2`
+                    ` text-slate-600 leading-normal text-[.5rem] text-left px-2 ss:text-[.6rem] sm:text-[.7rem]`
                 }
             >
                 {description}

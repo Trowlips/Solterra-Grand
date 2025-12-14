@@ -1,9 +1,9 @@
 import { useSwiperSlide } from "swiper/react";
 import FeatureCard from "../../FeatureCard/FeatureCard";
-import { Shield } from "lucide-react";
+import { Shield, ShoppingBag, Wind } from "lucide-react";
 
 function ArrivalSlide() {
-    const { isActive } = useSwiperSlide();
+    const { isActive, isPrev, isNext } = useSwiperSlide();
 
     return (
         <section
@@ -18,37 +18,45 @@ function ArrivalSlide() {
                 <div className="flex flex-col md:flex-row gap-5 items-start">
                     <div
                         className={`
-                            w-full md:w-1/3 transition-all duration-700 opacity-0  ${
-                                isActive
-                                    ? "opacity-100 delay-500"
-                                    : "-translate-y-10"
+                            w-full md:w-1/3 transition-all duration-700 opacity-0
+                            ${isActive ? "opacity-100 delay-1000" : ""}
+                            ${
+                                isPrev
+                                    ? "-translate-y-10"
+                                    : isNext
+                                    ? "translate-y-10"
+                                    : ""
                             }
                         `}
                     >
-                        <span className="text-teal-600 font-bold tracking-widest text-[.8rem] block">
+                        <span className="text-teal-600 font-bold tracking-widest text-[.7rem] block ss:my-1">
                             LEVEL 01
                         </span>
-                        <h2 className="text-l font-serif text-slate-900 mb-3">
+                        <h2 className="text-lg font-serif text-slate-900 mb-2">
                             The Arrival & Threshold
                         </h2>
-                        <p className="text-slate-600 text-[.6rem] text-justify leading-relaxed">
+                        <p className="text-slate-600 text-[.6rem] text-justify leading-relaxed ss:text-[.7rem]">
                             Perched at the highest point, the Crestline is where
                             the world is left behind. Experience an immaculate
                             welcome paved in white stone, framed by a 180-degree
                             horizon.
                         </p>
-                        <div className="hidden flex justify-center items-center gap-4 text-slate-400">
+                        <div className="hidden sm:flex justify-center items-center gap-4 text-slate-400 mt-5">
                             <Shield height={20} width={20} />
-                            {/* <Wind height={20} width={20} title="Sea Breeze" />
-                        <ShoppingBag height={20} width={20} title="Local Market" /> */}
+                            <Wind height={20} width={20} />
+                            <ShoppingBag height={20} width={20} />
                         </div>
                     </div>
 
-                    <div className="md:w-2/3 grid gap-3">
+                    <div className="md:w-2/3 grid gap-3 ss:gap-2 sm:gap-4 sm:py-5">
                         <FeatureCard
                             className={`
-                                transition-all duration-700
-                                
+                                transition-all duration-700 h-25 sm:h-35 opacity-0
+                                ${
+                                    isActive
+                                        ? "opacity-100 delay-1500"
+                                        : "translate-x-10"
+                                }
                             `}
                         >
                             <FeatureCard.Image
@@ -58,31 +66,55 @@ function ArrivalSlide() {
                             <FeatureCard.Content
                                 title="Crestline Parking Piazza"
                                 description="An open-air arrival court of white stone. Staffed by discreet valets, offering your first hint of the luxury within."
-                                titleClass="text-red-400"
                             />
                         </FeatureCard>
-                        <div className="grid grid-cols-2 gap-2">
-                            <div className="bg-slate-50 p-2 rounded-xl border border-slate-100 h-22">
-                                <h3 className="text-[.8rem] font-semibold font-serif mb-1 text-slate-800">
-                                    Arrival Pavilio
+                        <div
+                            className={`
+                                grid grid-cols-2 gap-2 transition-all duration-700 opacity-0
+                                ${isActive ? "opacity-100 delay-2000" : ""}
+                                    ${
+                                        isPrev
+                                            ? "-translate-y-10"
+                                            : isNext
+                                            ? "translate-y-10"
+                                            : ""
+                                    }
+                            `}
+                        >
+                            <div
+                                className={`
+                                    bg-slate-50 p-2 rounded-xl border border-slate-100 h-22 sm:h-25
+                                `}
+                            >
+                                <h3 className="text-[.8rem] font-semibold font-serif mb-1 text-slate-800 sm:text-[1rem]">
+                                    Arrival Pavilion
                                 </h3>
-                                <p className="text-[.5rem] text-slate-600">
+                                <p className="text-[.5rem] ss:text-[.6rem] text-slate-600">
                                     Open-air white marble and dark wood. The air
                                     smells of sea salt and hibiscus.
                                 </p>
                             </div>
-                            <div className="bg-slate-50 p-2 rounded-xl border border-slate-100 h-22">
-                                <h3 className="text-[.8rem] font-semibold font-serif mb-1 text-slate-800">
+                            <div className="bg-slate-50 p-2 rounded-xl border border-slate-100 h-22 sm:h-25">
+                                <h3 className="text-[.8rem] font-semibold font-serif mb-1 text-slate-800 sm:text-[1rem]">
                                     Garden Atrium
                                 </h3>
-                                <p className="text-[.5rem] text-slate-600">
+                                <p className="text-[.5rem] ss:text-[.6rem] sm:text-[.7rem] text-slate-600">
                                     A lush buffer zone under glass, featuring a
                                     koi pond and waterfall.
                                 </p>
                             </div>
                         </div>
 
-                        <FeatureCard>
+                        <FeatureCard
+                            className={`
+                                transition-all duration-700 h-25 sm:h-35 opacity-0
+                                ${
+                                    isActive
+                                        ? "opacity-100 delay-2500"
+                                        : "-translate-x-10"
+                                }
+                            `}
+                        >
                             <FeatureCard.Content
                                 title="Grand Vista Gallery"
                                 description="The great reveal. A 50-foot high 'wall window' offering a panoramic preview of the terraces below."
