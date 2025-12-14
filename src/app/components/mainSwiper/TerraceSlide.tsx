@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useSwiper, useSwiperSlide } from "swiper/react";
 
 function TerraceSlide() {
@@ -5,33 +6,11 @@ function TerraceSlide() {
     const { isActive, isPrev, isNext } = useSwiperSlide();
 
     return (
-        <div
-            className="flex flex-col justify-center items-center h-screen w-screen bg-amber-300
-                "
+        <div className="
+            flex flex-col h-screen w-screen bg-[#f1efed] pt-24
+            "
         >
-            <h2
-                className={`
-                    transition-all opacity-0 duration-1000
-                    ${
-                        isActive
-                            ? "opacity-100 delay-700"
-                            : isNext
-                            ? "translate-y-full"
-                            : isPrev
-                            ? "-translate-y-full"
-                            : ""
-                    }`}
-            >
-                Slide 2
-            </h2>
-            <div>
-                <button
-                    className=""
-                    onClick={() => swiper.setProgress(0, 500)}
-                >
-                    Next
-                </button>
-            </div>
+            
         </div>
     );
 }

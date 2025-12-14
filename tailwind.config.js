@@ -38,6 +38,10 @@ module.exports = {
                     950: "#382814",
                 },
             },
+            screens: {
+                sh: { raw: '(max-height: 540px)' },
+                mh: { raw: '(max-height: 570px)' },
+            }
         },
     },
     plugins: [],
