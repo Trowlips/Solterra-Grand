@@ -29,13 +29,13 @@ function ArrivalSlide() {
                             }
                         `}
                     >
-                        <span className="text-teal-600 font-bold tracking-widest text-[.7rem] block ss:my-1">
+                        <span className="text-teal-600 font-bold tracking-widest text-[.7rem] block ss:my-1 lg:text-lg lg:mb-5">
                             LEVEL 01
                         </span>
-                        <h2 className="text-lg font-serif text-slate-900 mb-2">
+                        <h2 className="text-lg font-serif text-slate-900 mb-2 lg:text-4xl lg:mb-5">
                             The Arrival & Threshold
                         </h2>
-                        <p className="text-slate-600 text-[.6rem] text-justify leading-relaxed ss:text-[.7rem]">
+                        <p className="text-slate-600 text-[.6rem] text-left leading-relaxed ss:text-[.7rem] lg:text-lg">
                             Perched at the highest point, the Crestline is where
                             the world is left behind. Experience an immaculate
                             welcome paved in white stone, framed by a 180-degree
@@ -51,11 +51,11 @@ function ArrivalSlide() {
                     <div className="md:w-2/3 grid gap-3 ss:gap-2 sm:gap-4 sm:py-5">
                         <FeatureCard
                             className={`
-                                transition-all duration-700 h-25 sm:h-35 opacity-0
+                                transition-all duration-700 h-25 sm:h-35 lg:h-50 opacity-0
                                 ${
                                     isActive
                                         ? "opacity-100 delay-1500"
-                                        : "translate-x-10"
+                                        : "translate-x-10 delay-500"
                                 }
                             `}
                         >
@@ -71,7 +71,11 @@ function ArrivalSlide() {
                         <div
                             className={`
                                 grid grid-cols-2 gap-2 transition-all duration-700 opacity-0
-                                ${isActive ? "opacity-100 delay-2000" : ""}
+                                ${
+                                    isActive
+                                        ? "opacity-100 delay-2000"
+                                        : "delay-500"
+                                }
                                     ${
                                         isPrev
                                             ? "-translate-y-10"
@@ -83,22 +87,22 @@ function ArrivalSlide() {
                         >
                             <div
                                 className={`
-                                    bg-slate-50 p-2 rounded-xl border border-slate-100 h-22 sm:h-25
+                                    bg-slate-50 p-2 rounded-xl border border-slate-100 h-22 sm:h-25 lg:h-35 lg:p-5
                                 `}
                             >
-                                <h3 className="text-[.8rem] font-semibold font-serif mb-1 text-slate-800 sm:text-[1rem]">
+                                <h3 className="text-[.8rem] font-semibold font-serif mb-1 text-slate-800 sm:text-[1rem] lg:text-2xl">
                                     Arrival Pavilion
                                 </h3>
-                                <p className="text-[.5rem] ss:text-[.6rem] text-slate-600">
+                                <p className="text-[.5rem] ss:text-[.6rem] text-slate-600 lg:text-[.8rem]">
                                     Open-air white marble and dark wood. The air
                                     smells of sea salt and hibiscus.
                                 </p>
                             </div>
-                            <div className="bg-slate-50 p-2 rounded-xl border border-slate-100 h-22 sm:h-25">
-                                <h3 className="text-[.8rem] font-semibold font-serif mb-1 text-slate-800 sm:text-[1rem]">
+                            <div className="bg-slate-50 p-2 rounded-xl border border-slate-100 h-22 sm:h-25 lg:h-35 lg:p-5">
+                                <h3 className="text-[.8rem] font-semibold font-serif mb-1 text-slate-800 sm:text-[1rem] lg:text-2xl">
                                     Garden Atrium
                                 </h3>
-                                <p className="text-[.5rem] ss:text-[.6rem] sm:text-[.7rem] text-slate-600">
+                                <p className="text-[.5rem] ss:text-[.6rem] sm:text-[.7rem] text-slate-600 lg:text-[.8rem]">
                                     A lush buffer zone under glass, featuring a
                                     koi pond and waterfall.
                                 </p>
@@ -107,11 +111,11 @@ function ArrivalSlide() {
 
                         <FeatureCard
                             className={`
-                                transition-all duration-700 h-25 sm:h-35 opacity-0
+                                transition-all duration-700 h-25 sm:h-35 lg:h-50 opacity-0
                                 ${
                                     isActive
                                         ? "opacity-100 delay-2500"
-                                        : "-translate-x-10"
+                                        : "-translate-x-10 delay-500"
                                 }
                             `}
                         >
