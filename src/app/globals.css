@@ -1,15 +1,11 @@
-@layer theme, base, components, utilities;
-
-@import "tailwindcss/theme.css" layer(theme);
-@import "tailwindcss/preflight.css" layer(base);
-@import "tailwindcss/utilities.css" layer(utilities);
+@import "tailwindcss";
 
 :root {
     --background: #ffffff;
     --foreground: #171717;
 }
 
-@theme inline {
+@theme {
     --color-background: var(--background);
     --color-foreground: var(--foreground);
     --font-sans: var(--font-geist-sans);
@@ -25,6 +21,24 @@
         50% {
             transform: rotate(3deg);
         }
+    }
+}
+
+@custom-variant exshort {
+    @media (height <= 500px) {
+        @slot;
+    }
+}
+
+@custom-variant short {
+    @media (height >= 501px) and (height <= 700px) {
+        @slot;
+    }
+}
+
+@custom-variant tall {
+    @media (height >= 701px) and (height <= 900px) {
+        @slot;
     }
 }
 

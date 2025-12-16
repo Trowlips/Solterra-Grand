@@ -14,8 +14,8 @@ function ArrivalSlide() {
                 sm:py-22
             "
         >
-            <div className="container mx-auto px-5 sm:px-6">
-                <div className="flex flex-col md:flex-row gap-5 items-start">
+            <div className="container h-full mx-auto px-5 sm:px-6">
+                <div className="h-full flex flex-col md:flex-row gap-5 items-start">
                     <div
                         className={`
                             w-full md:w-1/3 transition-all duration-700 opacity-0
@@ -32,10 +32,10 @@ function ArrivalSlide() {
                         <span className="text-teal-600 font-bold tracking-widest text-[.7rem] block ss:my-1 lg:text-lg lg:mb-5">
                             LEVEL 01
                         </span>
-                        <h2 className="text-lg font-serif text-slate-900 mb-2 lg:text-4xl lg:mb-5">
+                        <h2 className="text-[1.5rem] font-serif text-slate-900 mb-2 lg:text-4xl lg:mb-5">
                             The Arrival & Threshold
                         </h2>
-                        <p className="text-slate-600 text-[.6rem] text-left leading-relaxed ss:text-[.7rem] lg:text-lg">
+                        <p className="text-slate-600 text-[.7rem] text-left leading-relaxed short:mb-1 ss:text-[.7rem] lg:text-lg">
                             Perched at the highest point, the Crestline is where
                             the world is left behind. Experience an immaculate
                             welcome paved in white stone, framed by a 180-degree
@@ -48,10 +48,10 @@ function ArrivalSlide() {
                         </div>
                     </div>
 
-                    <div className="md:w-2/3 grid gap-3 ss:gap-2 sm:gap-4 sm:py-5">
+                    <div className="h-full md:w-2/3 grid grid-rows-[1fr_0.5fr_1fr] short:grid-rows-[1fr_0.7fr_1fr] gap-3 ss:gap-2 sm:gap-4 sm:py-5">
                         <FeatureCard
                             className={`
-                                transition-all duration-700 h-25 sm:h-35 lg:h-50 opacity-0
+                                transition-all duration-700 opacity-0
                                 ${
                                     isActive
                                         ? "opacity-100 delay-1500"
@@ -87,22 +87,22 @@ function ArrivalSlide() {
                         >
                             <div
                                 className={`
-                                    bg-slate-50 p-2 rounded-xl border border-slate-100 h-22 sm:h-25 lg:h-35 lg:p-5
+                                    bg-slate-50 p-2 rounded-xl border border-slate-100 lg:p-5 short:py-3 
                                 `}
                             >
-                                <h3 className="text-[.8rem] font-semibold font-serif mb-1 text-slate-800 sm:text-[1rem] lg:text-2xl">
+                                <h3 className="text-[.9rem] font-semibold font-serif mb-1 text-slate-800 sm:text-[1rem] lg:text-2xl">
                                     Arrival Pavilion
                                 </h3>
-                                <p className="text-[.5rem] ss:text-[.6rem] text-slate-600 lg:text-[.8rem]">
+                                <p className="text-[.6rem] ss:text-[.6rem] text-slate-600 lg:text-[.8rem]">
                                     Open-air white marble and dark wood. The air
                                     smells of sea salt and hibiscus.
                                 </p>
                             </div>
-                            <div className="bg-slate-50 p-2 rounded-xl border border-slate-100 h-22 sm:h-25 lg:h-35 lg:p-5">
-                                <h3 className="text-[.8rem] font-semibold font-serif mb-1 text-slate-800 sm:text-[1rem] lg:text-2xl">
+                            <div className="bg-slate-50 p-2 rounded-xl border border-slate-100 lg:p-5 short:py-3">
+                                <h3 className="text-[.9rem] font-semibold font-serif mb-1 text-slate-800 sm:text-[1rem] lg:text-2xl">
                                     Garden Atrium
                                 </h3>
-                                <p className="text-[.5rem] ss:text-[.6rem] sm:text-[.7rem] text-slate-600 lg:text-[.8rem]">
+                                <p className="text-[.6rem] ss:text-[.6rem] sm:text-[.7rem] text-slate-600 lg:text-[.8rem]">
                                     A lush buffer zone under glass, featuring a
                                     koi pond and waterfall.
                                 </p>
@@ -111,7 +111,7 @@ function ArrivalSlide() {
 
                         <FeatureCard
                             className={`
-                                transition-all duration-700 h-25 sm:h-35 lg:h-50 opacity-0
+                                transition-all duration-700 opacity-0
                                 ${
                                     isActive
                                         ? "opacity-100 delay-2500"

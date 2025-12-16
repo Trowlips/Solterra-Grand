@@ -1,55 +1,6 @@
 import Image from "next/image";
 import { ReactNode } from "react";
 
-// type FeatureCardPropsType = {
-//     title: string;
-//     description: string;
-//     img: string;
-//     align?: "left" | "right";
-//     orientation?: "horizontal" | "vertical";
-//     className?: string;
-// };
-
-// function FeatureCard2(props: FeatureCardPropsType) {
-//     const {
-//         title,
-//         description,
-//         img,
-//         align = "left",
-//         orientation = "horizontal",
-//         className,
-//     } = props;
-//     return (
-//         <div
-//             className={
-//                 `
-//                 flex gap-6 items-center bg-slate-50 rounded-xl overflow-hidden border border-slate-100 transition-all hover:shadow-lg group
-//                 ${align === "right" ? "flex-row-reverse" : "flex-row"}
-//                 ` +
-//                 " " +
-//                 className
-//             }
-//         >
-//             <div className="relative w-full md:w-1/2 h-full">
-//                 <Image
-//                     src={img}
-//                     alt={title}
-//                     fill
-//                     className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"
-//                 />
-//             </div>
-//             <div className="w-full md:w-1/2 h-full py-1">
-//                 <h3 className="text-[.7rem] font-serif text-slate-800 mb-1">
-//                     {title}
-//                 </h3>
-//                 <p className="text-slate-600 leading-normal text-[.5rem] text-left">
-//                     {description}
-//                 </p>
-//             </div>
-//         </div>
-//     );
-// }
-
 type FeatureCardPropType = {
     children: ReactNode;
     className?: string;
@@ -59,7 +10,7 @@ function FeatureCard(props: FeatureCardPropType) {
     return (
         <div
             className={
-                `flex items-center bg-slate-50 rounded-xl border border-slate-100 overflow-hidden transition-all hover:shadow-lg group` +
+                `h-full flex items-center bg-slate-50 rounded-xl border border-slate-100 overflow-hidden transition-all hover:shadow-lg group` +
                 " " +
                 className
             }
@@ -78,7 +29,7 @@ type ImagePropTypes = {
 function ImageContainer(props: ImagePropTypes) {
     const { src, alt, containerClass, imageClass } = props;
     return (
-        <div className={`relative w-full md:w-1/2 h-full`}>
+        <div className={`relative w-2/5 md:w-1/2 h-full`}>
             <Image
                 src={src}
                 alt={alt}
@@ -98,10 +49,10 @@ type ContentContainerPropTypes = {
 function ContentContainer(props: ContentContainerPropTypes) {
     const { title, description, titleClass, descriptionClass } = props;
     return (
-        <div className="w-full md:w-1/2 h-full py-3 sm:py-4 sm:px-1">
+        <div className="w-3/5 md:w-1/2 h-full py-3 px-1 sm:py-4 sm:px-1">
             <h3
                 className={
-                    `text-[.6rem] font-semibold font-serif text-slate-800 mb-1 ss:text-[.8rem] sm:text-[1rem] lg:text-2xl` +
+                    `text-[.9rem] px-1 font-semibold font-serif text-slate-800 mb-1 ss:text-[.8rem] sm:text-[1rem] lg:text-2x` +
                     " " +
                     titleClass
                 }
@@ -111,7 +62,7 @@ function ContentContainer(props: ContentContainerPropTypes) {
             <p
                 className={
                     descriptionClass +
-                    ` text-slate-600 leading-normal text-[.5rem] text-left px-2 ss:text-[.6rem] sm:text-[.7rem] lg:text-[1rem]`
+                    ` text-[.7rem] text-left text-slate-600 leading-normal px-2 ss:text-[.6rem] sm:text-[.7rem] lg:text-[1rem]`
                 }
             >
                 {description}
