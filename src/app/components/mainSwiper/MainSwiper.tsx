@@ -12,6 +12,7 @@ import LobbySlide from "./slides/LobbySlide";
 import "./styles.css";
 import PoolSlide from "./slides/PoolSlide";
 import HousingSlide from "./slides/HousingSlide";
+import BeachSlide from "./slides/BeachSlide";
 
 type MainSwiperType = {
     setSwiper: Dispatch<SetStateAction<SwiperType | null>>;
@@ -64,6 +65,12 @@ function MainSwiper(props: MainSwiperType) {
             </SwiperSlide>
             <SwiperSlide>
                 <HousingSlide />
+            </SwiperSlide>
+            <SwiperSlide>
+                <PoolSlide />
+            </SwiperSlide>
+            <SwiperSlide>
+                <BeachSlide />
             </SwiperSlide>
         </Swiper>
     );

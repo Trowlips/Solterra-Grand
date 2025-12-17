@@ -1,5 +1,5 @@
 import { useWindowSize } from "@/app/hooks/useWindowSize";
-import { Home, Wind } from "lucide-react";
+import { Home, Lock, Wind } from "lucide-react";
 import Image from "next/image";
 import { EffectCards } from "swiper/modules";
 
@@ -67,7 +67,7 @@ function HousingSlide() {
                                 <HousingCard
                                     src="/villa-3.jpg"
                                     signature={true}
-                                    icon={<Home size={20} />}
+                                    icon={<Lock size={20} />}
                                     title="Horizon Houses"
                                     description="Spacious 2-4 bedroom family estates with expansive wrap-around decks. Designed for long-term stays and group gatherings."
                                     featureList={[
