@@ -4,13 +4,14 @@ import type { Swiper as SwiperType } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Controller, Mousewheel, Pagination, Parallax } from "swiper/modules";
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import FrontSlide from "./slides/FrontSlide";
 
 import ArrivalSlide from "./slides/ArrivalSlide";
 import LobbySlide from "./slides/LobbySlide";
 import "./styles.css";
 import PoolSlide from "./slides/PoolSlide";
+import HousingSlide from "./slides/HousingSlide";
 
 type MainSwiperType = {
     setSwiper: Dispatch<SetStateAction<SwiperType | null>>;
@@ -62,7 +63,7 @@ function MainSwiper(props: MainSwiperType) {
                 <LobbySlide />
             </SwiperSlide>
             <SwiperSlide>
-                <PoolSlide />
+                <HousingSlide />
             </SwiperSlide>
         </Swiper>
     );
