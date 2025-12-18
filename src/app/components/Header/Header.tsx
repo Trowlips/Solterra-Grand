@@ -1,21 +1,39 @@
 "use client";
-
 import Link from "next/link";
+import type { Swiper as SwiperType } from "swiper";
 import Logo from "../logo/Logo";
 import Sidebar from "../sidebar/Sidebar";
-import { useSwiper } from "swiper/react";
 
-export default function Header() {
-    const swiper = useSwiper();
-    console.log("SWIPER: ", swiper?.activeIndex);
+type HeaderTypes = {
+    swiper: SwiperType | null;
+    activeIndex: number;
+};
+
+export default function Header(props: HeaderTypes) {
+    const { swiper, activeIndex } = props;
+
+    function toTheTop() {
+        swiper?.slideTo(0);
+    }
+
+    function handleSetSlide(slide: number) {
+        // console.log("active: ", swiper?.activeIndex, " Slide: ", slide);
+        if (swiper && swiper.activeIndex !== slide) {
+            swiper.slideTo(slide);
+        }
+    }
 
     return (
         <header
-            className="
-            absolute
-            w-screen flex px-3 pt-3 sm:justify-center m-auto
-            xl:w-11/12
-            "
+            className={`
+                absolute w-screen flex px-3 m-auto z-20 transition-all duration-700
+                sm:justify-center 
+                ${
+                    activeIndex !== 0
+                        ? "bg-white/95 backdrop-blur-md delay-500 duration-1000 py-1.5 shadow-sm"
+                        : "bg-transparent delay-500 duration-1000 py-5"
+                }
+            `}
         >
             <div
                 className="
@@ -23,40 +41,44 @@ export default function Header() {
                     sm:w-11/12
                     "
             >
-                <Logo />
+                <Logo activeIndex={activeIndex} toTheTop={toTheTop} />
                 <nav className="hidden sm:flex w-2/4">
                     <ul
                         className="
                             z-10 list-none flex flex-row justify-around items-center
-                            text-[.9rem] w-full text-white
+                            text-[.9rem] w-full bg-white/80 px-8 py-2 rounded-full backdrop-blur-sm shadow-sm
                             md:text-[1rem]
                             lg:text-[1.2rem]
                             xl:text-[1.3rem]
-                            [&>li]:hover:scale-120 [&>li]:transition-all
+                            [&>li]:hover:text-teal-600 [&>li]:tracking-widest [&>li]:transition-colors [&>li]:duration-300
                             "
                     >
                         <li>
-                            <Link href="/#">Home</Link>
+                            <button
+                                onClick={() => handleSetSlide(1)}
+                                className={`${activeIndex === 1 ? "text-teal-600" : ""}`}
+                            >
+                                Arrival
+                            </button>
                         </li>
                         <li>
-                            <Link href="/#">Residence</Link>
+                            <button onClick={() => handleSetSlide(2)}  className={`${activeIndex === 2 ? "text-teal-600" : ""}`}>
+                                Lobby
+                            </button>
                         </li>
                         <li>
-                            <Link href="/#">Terrace</Link>
+                            <button onClick={() => handleSetSlide(3)}  className={`${activeIndex === 3 ? "text-teal-600" : ""}`}>
+                                Housing
+                            </button>
                         </li>
                         <li>
-                            <Link href="/#">About</Link>
+                            <button onClick={() => handleSetSlide(4)}  className={`${activeIndex === 4 ? "text-teal-600" : ""}`}>
+                                Pools
+                            </button>
                         </li>
-                        {/* <li
-                            className="border rounded text-center transition-all
-                            hover:bg-slate-400 hover:text-white
-                            sm:px-1 sm:py-1"
-                        >
-                            <Link href="/#">Book now!</Link>
-                        </li> */}
                     </ul>
                 </nav>
-                <Sidebar />
+                <Sidebar swiper={swiper} activeIndex={activeIndex} />
             </div>
         </header>
     );
