@@ -68,11 +68,13 @@ export default function Header(props: HeaderTypes) {
                         </li>
                         <li>
                             <button onClick={() => handleSetSlide(3)}  className={`${activeIndex === 3 ? "text-teal-600" : ""}`}>
-                                Pools
+                                Housing
                             </button>
                         </li>
                         <li>
-                            <Link href="/#">About</Link>
+                            <button onClick={() => handleSetSlide(4)}  className={`${activeIndex === 4 ? "text-teal-600" : ""}`}>
+                                Pools
+                            </button>
                         </li>
                     </ul>
                 </nav>

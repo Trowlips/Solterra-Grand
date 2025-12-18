@@ -15,7 +15,7 @@ function LobbySlide() {
 
     return (
         <section className="h-screen w-screen">
-            <div className="container h-full w-full pt-15 pb-5 px-6">
+            <div className="container h-full w-full mx-auto pt-15 pb-5 px-6">
                 <div
                     className={`
                         h-1/4 w-full text-center transition-all duration-700 opacity-0
@@ -66,7 +66,7 @@ function LobbySlide() {
                         />
                     </div>
                     <div
-                        className={`relative z-10 h-full flex flex-col justify-end py-2 text-white transition-all duration-700 opacity-0
+                        className={`relative z-10 h-full flex flex-col justify-end py-5 text-white transition-all duration-700 opacity-0
                             ${isActive ? "opacity-100 delay-2400" : "delay-500"}
                         `}
                     >
