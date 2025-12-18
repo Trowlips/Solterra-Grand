@@ -1,7 +1,7 @@
 "use client";
-import Header from "./components/header/Header";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import type { Swiper as SwiperType } from "swiper";
+import Header from "./components/header/Header";
 import MainSwiper from "./components/mainSwiper/MainSwiper";
 
 export default function Home() {
