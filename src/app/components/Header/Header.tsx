@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import type { Swiper as SwiperType } from "swiper";
 import Logo from "../Logo/Logo";
 import Sidebar from "../sidebar/Sidebar";
