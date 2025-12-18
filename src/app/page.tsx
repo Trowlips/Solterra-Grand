@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import type { Swiper as SwiperType } from "swiper";
-import Header from "./components/header/Header";
+import Header from "./components/Header/Header";
 import MainSwiper from "./components/mainSwiper/MainSwiper";
 
 export default function Home() {
