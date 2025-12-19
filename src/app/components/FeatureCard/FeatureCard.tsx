@@ -52,7 +52,7 @@ function ContentContainer(props: ContentContainerPropTypes) {
         <div className="w-3/5 md:w-1/2 h-full py-3 px-1 sm:py-4 sm:px-1 flex flex-col justify-center items-center">
             <h3
                 className={
-                    `text-[.9rem] px-1 font-semibold font-serif text-slate-800 mb-1 ss:text-[.8rem] sm:text-[1rem] lg:text-2x tall:text-[1.1rem]` +
+                    `text-[.8rem] px-1 font-semibold font-serif text-slate-800 mb-1 ss:text-[.8rem] sm:text-[1rem] lg:text-2x` +
                     " " +
                     titleClass
                 }
@@ -62,7 +62,7 @@ function ContentContainer(props: ContentContainerPropTypes) {
             <p
                 className={
                     descriptionClass +
-                    ` text-[.7rem] text-left text-slate-600 leading-normal px-2 ss:text-[.6rem] sm:text-[.7rem] lg:text-[1rem] tall:text-[.8rem]`
+                    ` text-[.7rem] text-left text-slate-600 leading-normal px-2 ss:text-[.6rem] sm:text-[.7rem] lg:text-[1rem]`
                 }
             >
                 {description}
