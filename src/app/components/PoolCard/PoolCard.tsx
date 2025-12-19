@@ -10,7 +10,7 @@ type PoolCardPropsType = {
 export default function PoolCard(props: PoolCardPropsType) {
     const { src, icon, title, description } = props;
     return (
-        <div className="relative inset-0">
+        <div className="relative inset-0 md:w-80">
             <div className="absolute inset-0">
                 <Image
                     src={src}

@@ -23,8 +23,7 @@ function Logo(props: LogoPropTypes) {
             <div
                 className="
                 relative h-10 w-10 transition-[height,width]
-                ss:h-15 ss:w-15
-                sm:h-18 sm:w-18
+                md:h-15 md:w-15
                 "
             >
                 <Image

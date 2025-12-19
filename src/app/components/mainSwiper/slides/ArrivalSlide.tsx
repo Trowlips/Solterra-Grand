@@ -9,17 +9,17 @@ function ArrivalSlide() {
         <section
             className="
                 relative bg-white h-dvh overflow-hidden
-                pt-16 pb-10
-                ss:py-19
-                sm:py-22
+                pt-16 pb-5
+                ss:pt-20
+                sm:pt-25
             "
         >
             <div className="container h-full mx-auto px-5 sm:px-6">
-                <div className="h-full flex flex-col md:flex-row gap-5 items-start">
+                <div className="h-full flex flex-col md:flex-row gap-5">
                     <div
                         className={`
                             w-full md:w-1/3 transition-all duration-700 opacity-0
-                            ${isActive ? "opacity-100 delay-1000" : ""}
+                            ${isActive ? "opacity-100 delay-1000" : "delay-1000"}
                             ${
                                 isPrev
                                     ? "-translate-y-10"
@@ -29,33 +29,33 @@ function ArrivalSlide() {
                             }
                         `}
                     >
-                        <span className="text-teal-600 font-bold tracking-widest text-[.7rem] block ss:my-1 lg:text-lg lg:mb-5">
+                        <span className="text-teal-600 font-bold tracking-widest text-[.7rem] block ss:my-1 md:text-[.9rem] lg:text-lg lg:mb-5">
                             LEVEL 01
                         </span>
-                        <h2 className="text-[1.5rem] font-serif text-slate-900 mb-2 lg:text-4xl lg:mb-5">
+                        <h2 className="text-[1.5rem] font-serif text-slate-900 mb-2 md:mt-5 md:text-[1.8rem] lg:text-4xl lg:mb-5">
                             The Arrival & Threshold
                         </h2>
-                        <p className="text-slate-600 text-[.7rem] text-left leading-relaxed short:mb-1 ss:text-[.7rem] lg:text-lg">
+                        <p className="text-slate-600 text-[.7rem] text-left leading-relaxed md:text-[.8rem] lg:text-lg">
                             Perched at the highest point, the Crestline is where
                             the world is left behind. Experience an immaculate
                             welcome paved in white stone, framed by a 180-degree
                             horizon.
                         </p>
                         <div className="hidden sm:flex justify-center items-center gap-4 text-slate-400 mt-5">
-                            <Shield height={20} width={20} />
-                            <Wind height={20} width={20} />
-                            <ShoppingBag height={20} width={20} />
+                            <Shield className="md: h-6 w-6" />
+                            <Wind className="md: h-6 w-6" />
+                            <ShoppingBag className="md: h-6 w-6" />
                         </div>
                     </div>
 
-                    <div className="h-full md:w-2/3 grid grid-rows-[1fr_0.5fr_1fr] short:grid-rows-[1fr_0.7fr_1fr] gap-3 ss:gap-2 sm:gap-4 sm:py-5">
+                    <div className="h-full grid grid-rows-[1fr_0.5fr_1fr] gap-5 md:flex md:flex-col md:items-center md:w-2/3 md:py-10 md:gap-5">
                         <FeatureCard
                             className={`
                                 transition-all duration-700 opacity-0
                                 ${
                                     isActive
                                         ? "opacity-100 delay-1500"
-                                        : "translate-x-10 delay-500"
+                                        : "translate-x-10 delay-700"
                                 }
                             `}
                         >
@@ -90,19 +90,19 @@ function ArrivalSlide() {
                                     bg-slate-50 p-2 rounded-xl border border-slate-100 lg:p-5 short:py-3 
                                 `}
                             >
-                                <h3 className="text-[.9rem] font-semibold font-serif mb-1 text-slate-800 sm:text-[1rem] lg:text-2xl">
+                                <h3 className="text-[.9rem] font-semibold font-serif mb-1 text-slate-800 sm:text-[1rem] md:text-[1.2rem] lg:text-2xl">
                                     Arrival Pavilion
                                 </h3>
-                                <p className="text-[.6rem] ss:text-[.6rem] text-slate-600 lg:text-[.8rem]">
+                                <p className="text-[.6rem] ss:text-[.6rem] text-slate-600 md:text-[.8rem] lg:text-[.8rem]">
                                     Open-air white marble and dark wood. The air
                                     smells of sea salt and hibiscus.
                                 </p>
                             </div>
                             <div className="bg-slate-50 p-2 rounded-xl border border-slate-100 lg:p-5 short:py-3">
-                                <h3 className="text-[.9rem] font-semibold font-serif mb-1 text-slate-800 sm:text-[1rem] lg:text-2xl">
+                                <h3 className="text-[.9rem] font-semibold font-serif mb-1 text-slate-800 sm:text-[1rem] md:text-[1.2rem] lg:text-2xl">
                                     Garden Atrium
                                 </h3>
-                                <p className="text-[.6rem] ss:text-[.6rem] sm:text-[.7rem] text-slate-600 lg:text-[.8rem]">
+                                <p className="text-[.6rem] text-slate-600 ss:text-[.6rem] sm:text-[.7rem] md:text-[.8rem] lg:text-[.8rem]">
                                     A lush buffer zone under glass, featuring a
                                     koi pond and waterfall.
                                 </p>
