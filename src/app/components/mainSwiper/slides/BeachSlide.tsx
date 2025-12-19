@@ -11,8 +11,7 @@ function BeachSlide() {
                     className="w-full h-full object-cover"
                 />
             </div>
-            <div className="absolute inset-0 bg-linear-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
-
+            <div className="absolute inset-0 bg-linear-to-t from-slate-900 via-slate-900/40 to-transparent" />
             <div className="h-full flex justify-center items-center">
                 <div className="relative z-10 container mx-auto px-6">
                     <div className="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-2xl max-w-5xl mx-auto">
@@ -31,7 +30,7 @@ function BeachSlide() {
                                 </p>
                             </div>
 
-                            <div className="flex-1 space-y-6">
+                            <div className="flex flex-col space-y-6">
                                 <div>
                                     <h3 className="text-xl font-bold text-teal-200 mb-1">
                                         Neptune&apos;s Beach Club

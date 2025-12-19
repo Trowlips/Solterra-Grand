@@ -18,6 +18,7 @@ function Sidebar(props: SideBarPropTypes) {
                 className={`
                     absolute z-10 top-0 right-0 h-full w-8 transition-transform duration-500 ease-in-out transform-gpu backface-hidden cursor-pointer text-teal-600
                     hover:scale-120
+                    md:-left-2
                     xl:h-20 xl:top-2 xl:right-9
                     2xl:right-12
                     ${

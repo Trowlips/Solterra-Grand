@@ -2,21 +2,26 @@ import { Coffee, Droplets, Sun } from "lucide-react";
 import Image from "next/image";
 import { useSwiperSlide } from "swiper/react";
 import PoolCard from "../../PoolCard/PoolCard";
+import { useWindowSize } from "@/app/hooks/useWindowSize";
 
 function PoolSlide() {
     const { isActive } = useSwiperSlide();
+    const windowSize = useWindowSize();
     return (
         <section className="h-dvh w-screen bg-linear-to-b from-teal-100 to-white">
-            <div className="container h-full w-full mx-auto pt-15 pb-5 px-6">
+            <div className="container h-full w-full mx-auto pt-15 pb-5 px-6 md:pt-25">
                 <div className="text-center mb-3">
                     <span className="text-[.7rem] text-teal-600 font-bold tracking-widest text-sm block mb-1">
                         LEVEL 04
                     </span>
                     <h2 className="text-[1.7rem] font-serif text-slate-900">
+                        {windowSize.width && windowSize.width >= 740 && (
+                            <span>Solara Terrace: </span>
+                        )}
                         Lounge & Swim
                     </h2>
                 </div>
-                <div className="h-6/7 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                <div className="h-6/7 grid grid-cols-1 md:flex md:flex-wrap md:justify-center lg:grid-cols-3 gap-3 md:gap-5">
                     {/* Lagoon Pool and Bar */}
                     <PoolCard
                         src="/pool-bar-1.jpg"

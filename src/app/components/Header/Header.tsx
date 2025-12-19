@@ -46,7 +46,7 @@ export default function Header(props: HeaderTypes) {
                         className="
                             z-10 list-none flex flex-row justify-around items-center
                             text-[.9rem] w-full bg-white/80 px-8 py-2 rounded-full backdrop-blur-sm shadow-sm
-                            md:text-[1rem]
+                            md:px-3
                             lg:text-[1.2rem]
                             xl:text-[1.3rem]
                             [&>li]:hover:text-teal-600 [&>li]:tracking-widest [&>li]:transition-colors [&>li]:duration-300
@@ -90,6 +90,16 @@ export default function Header(props: HeaderTypes) {
                                 }`}
                             >
                                 Pools
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                onClick={() => handleSetSlide(5)}
+                                className={`${
+                                    activeIndex === 5 ? "text-teal-600" : ""
+                                }`}
+                            >
+                                Sea
                             </button>
                         </li>
                     </ul>

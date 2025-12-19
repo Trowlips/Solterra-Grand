@@ -31,13 +31,18 @@
 }
 
 @custom-variant short {
-    @media (height >= 501px) and (height <= 700px) {
+    @media (height >= 520px) and (height <= 719px) {
         @slot;
     }
 }
 
 @custom-variant tall {
-    @media (height >= 701px) and (height <= 900px) {
+    @media (height >= 720px) and (height <= 819px) {
+        @slot;
+    }
+}
+@custom-variant extall {
+    @media (height >= 820px) and (height <= 919px) {
         @slot;
     }
 }

@@ -29,27 +29,28 @@ export default function HousingCard(props: HousingCardPropsType) {
                     Signature
                 </div>
             )}
-            <div className="relative h-1/3 overflow-hidden">
+            <div className="relative h-1/3 md:h-3/5 overflow-hidden">
                 <Image
                     src={src}
                     alt="Cabin"
                     fill
+                    quality={90}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
             </div>
             <div className="p-5">
                 <div className="flex items-center gap-3 mb-1 text-teal-400 ">
                     {icon}
-                    <h3 className="text-md font-bold text-white ">{title}</h3>
+                    <h3 className="text-md font-bold text-white md:text-xl">{title}</h3>
                 </div>
-                <p className="text-[.9rem] text-left text-slate-400 mb-6">
+                <p className="text-[.9rem] text-left text-slate-400 mb-6 md:text-base">
                     {description}
                 </p>
 
                 <ul className="space-y-2 text-sm text-slate-300">
                     {featureList.map((feature) => (
-                        <li key={feature} className="flex gap-2">
-                            <div className="w-1.5 h-1.5 rounded-full bg-teal-500 mt-1.5" />
+                        <li key={feature} className="flex gap-2 md:text-[1rem]">
+                            <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-teal-500 mt-1.5" />
                             {feature}
                         </li>
                     ))}
