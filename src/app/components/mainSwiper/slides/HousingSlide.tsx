@@ -26,7 +26,7 @@ function HousingSlide() {
                     </p>
                 </div>
 
-                <div className="h-4/5 py-2 w-full flex justify-center items-center md:grid-cols-3 gap-8">
+                <div className="h-4/5 py-2 w-full flex justify-center items-center">
                     {windowSize.width && windowSize.width <= 1000 && (
                         <Swiper
                             effect="cards"
@@ -37,7 +37,9 @@ function HousingSlide() {
                             <SwiperSlide className="bg-transparent! ">
                                 <HousingCard
                                     src="https://adaorfpiaidcjralrdcp.supabase.co/storage/v1/object/public/pictures/cabins-2.jpg"
-                                    icon={<Wind className="h-5 w-5 md:h-8 md:w-8" />}
+                                    icon={
+                                        <Wind className="h-5 w-5 md:h-8 md:w-8" />
+                                    }
                                     title="Coastal Cabins"
                                     description="Intimate, rustically elegant
                                             hideaways tucked into the cliffside
@@ -78,6 +80,49 @@ function HousingSlide() {
                                 />
                             </SwiperSlide>
                         </Swiper>
+                    )}
+                    {windowSize.width && windowSize.width >= 1001 && (
+                        <div className="flex flex-row h-full gap-5 px-5">
+                            <HousingCard
+                                src="https://adaorfpiaidcjralrdcp.supabase.co/storage/v1/object/public/pictures/cabins-2.jpg"
+                                icon={
+                                    <Wind className="h-5 w-5 md:h-8 md:w-8" />
+                                }
+                                title="Coastal Cabins"
+                                description="Intimate, rustically elegant
+                                hideaways tucked into the cliffside
+                                greenery. Perfect for couples
+                                seeking a nature-first connection."
+                                featureList={[
+                                    "Forest & Sea Views",
+                                    "Open-air Shower",
+                                    "Private Trekking Path",
+                                ]}
+                            />
+                            <HousingCard
+                                src="https://adaorfpiaidcjralrdcp.supabase.co/storage/v1/object/public/pictures/housing-1.jpg"
+                                icon={<Home size={20} />}
+                                title="Horizon Houses"
+                                description="Spacious 2-4 bedroom family estates with expansive wrap-around decks. Designed for long-term stays and group gatherings."
+                                featureList={[
+                                    "Full Chef's Kitchen",
+                                    "Private Media Room",
+                                    "Concierge Service",
+                                ]}
+                            />
+                            <HousingCard
+                                src="https://adaorfpiaidcjralrdcp.supabase.co/storage/v1/object/public/pictures/villa-3.jpg"
+                                signature={true}
+                                icon={<Lock size={20} />}
+                                title="Horizon Houses"
+                                description="Spacious 2-4 bedroom family estates with expansive wrap-around decks. Designed for long-term stays and group gatherings."
+                                featureList={[
+                                    "Infinity Plunge Pool",
+                                    "Soundproof Suites",
+                                    "One-Way Privacy Glass",
+                                ]}
+                            />
+                        </div>
                     )}
                 </div>
             </div>

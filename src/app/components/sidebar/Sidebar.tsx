@@ -19,8 +19,8 @@ function Sidebar(props: SideBarPropTypes) {
                     absolute z-10 top-0 right-0 h-full w-8 transition-transform duration-500 ease-in-out transform-gpu backface-hidden cursor-pointer text-teal-600
                     hover:scale-120
                     md:-left-2
+                    lg:left-auto
                     xl:h-20 xl:top-2 xl:right-9
-                    2xl:right-12
                     ${
                         isSideBarOpen
                             ? "opacity-0 scale-20"
@@ -38,7 +38,11 @@ function Sidebar(props: SideBarPropTypes) {
                     px-3 pt-3
                     lg:w-2/5
                     xl:w-1/4
-                    ${isSideBarOpen ? "opacity-100" : "translate-x-full opacity-0"}
+                    ${
+                        isSideBarOpen
+                            ? "opacity-100"
+                            : "translate-x-full opacity-0"
+                    }
                     `}
             >
                 <div

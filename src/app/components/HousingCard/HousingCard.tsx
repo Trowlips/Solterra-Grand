@@ -20,7 +20,7 @@ export default function HousingCard(props: HousingCardPropsType) {
     } = props;
     return (
         <div
-            className={`h-full bg-slate-800 rounded-xl overflow-hidden border ${
+            className={`relative h-full bg-slate-800 rounded-xl overflow-hidden border ${
                 signature ? "border-teal-500/30" : "border-black/40"
             }`}
         >
@@ -29,7 +29,7 @@ export default function HousingCard(props: HousingCardPropsType) {
                     Signature
                 </div>
             )}
-            <div className="relative h-1/3 md:h-3/5 overflow-hidden">
+            <div className="relative h-1/3 md:h-3/5 lg:h-2/5 overflow-hidden">
                 <Image
                     src={src}
                     alt="Cabin"
