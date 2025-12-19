@@ -2,7 +2,7 @@ import Image from "next/image";
 
 function BeachSlide() {
     return (
-        <section className="h-screen w-screen pt-15 bg-slate-900">
+        <section className="h-dvh w-screen pt-15 bg-slate-900">
             <div className="absolute inset-0 opacity-60">
                 <Image
                     src="/cove.jpg"
