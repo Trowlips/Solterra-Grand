@@ -8,8 +8,8 @@ function ArrivalSlide() {
     return (
         <section
             className="
-                relative bg-white h-screen overflow-hidden
-                py-16
+                relative bg-white h-dvh overflow-hidden
+                pt-16 pb-10
                 ss:py-19
                 sm:py-22
             "
@@ -90,19 +90,19 @@ function ArrivalSlide() {
                                     bg-slate-50 p-2 rounded-xl border border-slate-100 lg:p-5 short:py-3 
                                 `}
                             >
-                                <h3 className="text-[.9rem] font-semibold font-serif mb-1 text-slate-800 sm:text-[1rem] lg:text-2xl tall:text-lg">
+                                <h3 className="text-[.9rem] font-semibold font-serif mb-1 text-slate-800 sm:text-[1rem] lg:text-2xl">
                                     Arrival Pavilion
                                 </h3>
-                                <p className="text-[.6rem] ss:text-[.6rem] text-slate-600 lg:text-[.8rem] tall:text-[.7rem]">
+                                <p className="text-[.6rem] ss:text-[.6rem] text-slate-600 lg:text-[.8rem]">
                                     Open-air white marble and dark wood. The air
                                     smells of sea salt and hibiscus.
                                 </p>
                             </div>
                             <div className="bg-slate-50 p-2 rounded-xl border border-slate-100 lg:p-5 short:py-3">
-                                <h3 className="text-[.9rem] font-semibold font-serif mb-1 text-slate-800 sm:text-[1rem] lg:text-2xl tall:text-lg">
+                                <h3 className="text-[.9rem] font-semibold font-serif mb-1 text-slate-800 sm:text-[1rem] lg:text-2xl">
                                     Garden Atrium
                                 </h3>
-                                <p className="text-[.6rem] ss:text-[.6rem] sm:text-[.7rem] text-slate-600 lg:text-[.8rem] tall:text-[.7rem]">
+                                <p className="text-[.6rem] ss:text-[.6rem] sm:text-[.7rem] text-slate-600 lg:text-[.8rem]">
                                     A lush buffer zone under glass, featuring a
                                     koi pond and waterfall.
                                 </p>

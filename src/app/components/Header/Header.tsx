@@ -25,7 +25,7 @@ export default function Header(props: HeaderTypes) {
     return (
         <header
             className={`
-                absolute w-screen flex px-3 m-auto z-20 transition-all duration-700
+                absolute w-screen flex px-3 m-auto z-20 transition-all duration-700 overflow-hidden
                 sm:justify-center 
                 ${
                     activeIndex !== 0
@@ -55,23 +55,40 @@ export default function Header(props: HeaderTypes) {
                         <li>
                             <button
                                 onClick={() => handleSetSlide(1)}
-                                className={`${activeIndex === 1 ? "text-teal-600" : ""}`}
+                                className={`${
+                                    activeIndex === 1 ? "text-teal-600" : ""
+                                }`}
                             >
                                 Arrival
                             </button>
                         </li>
                         <li>
-                            <button onClick={() => handleSetSlide(2)}  className={`${activeIndex === 2 ? "text-teal-600" : ""}`}>
+                            <button
+                                onClick={() => handleSetSlide(2)}
+                                className={`${
+                                    activeIndex === 2 ? "text-teal-600" : ""
+                                }`}
+                            >
                                 Lobby
                             </button>
                         </li>
                         <li>
-                            <button onClick={() => handleSetSlide(3)}  className={`${activeIndex === 3 ? "text-teal-600" : ""}`}>
+                            <button
+                                onClick={() => handleSetSlide(3)}
+                                className={`${
+                                    activeIndex === 3 ? "text-teal-600" : ""
+                                }`}
+                            >
                                 Housing
                             </button>
                         </li>
                         <li>
-                            <button onClick={() => handleSetSlide(4)}  className={`${activeIndex === 4 ? "text-teal-600" : ""}`}>
+                            <button
+                                onClick={() => handleSetSlide(4)}
+                                className={`${
+                                    activeIndex === 4 ? "text-teal-600" : ""
+                                }`}
+                            >
                                 Pools
                             </button>
                         </li>
