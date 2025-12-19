@@ -5,7 +5,7 @@ function BeachSlide() {
         <section className="h-dvh w-screen pt-15 bg-slate-900">
             <div className="absolute inset-0 opacity-60">
                 <Image
-                    src="/cove.jpg"
+                    src="https://adaorfpiaidcjralrdcp.supabase.co/storage/v1/object/public/pictures/cove.jpg"
                     alt="Private Beach"
                     fill
                     className="w-full h-full object-cover"

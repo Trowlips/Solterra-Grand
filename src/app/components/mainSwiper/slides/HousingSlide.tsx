@@ -32,11 +32,11 @@ function HousingSlide() {
                             effect="cards"
                             grabCursor={true}
                             modules={[EffectCards]}
-                            className="h-full w-full py-5! px-5! md:px-20!"
+                            className="h-full w-full py-5! px-5! md:px-20! z-20!"
                         >
                             <SwiperSlide className="bg-transparent! ">
                                 <HousingCard
-                                    src="/cabins-2.jpg"
+                                    src="https://adaorfpiaidcjralrdcp.supabase.co/storage/v1/object/public/pictures/cabins-2.jpg"
                                     icon={<Wind className="h-5 w-5 md:h-8 md:w-8" />}
                                     title="Coastal Cabins"
                                     description="Intimate, rustically elegant
@@ -52,7 +52,7 @@ function HousingSlide() {
                             </SwiperSlide>
                             <SwiperSlide className="bg-transparent!">
                                 <HousingCard
-                                    src="/housing-1.jpg"
+                                    src="https://adaorfpiaidcjralrdcp.supabase.co/storage/v1/object/public/pictures/housing-1.jpg"
                                     icon={<Home size={20} />}
                                     title="Horizon Houses"
                                     description="Spacious 2-4 bedroom family estates with expansive wrap-around decks. Designed for long-term stays and group gatherings."
@@ -65,7 +65,7 @@ function HousingSlide() {
                             </SwiperSlide>
                             <SwiperSlide className="bg-transparent!">
                                 <HousingCard
-                                    src="/villa-3.jpg"
+                                    src="https://adaorfpiaidcjralrdcp.supabase.co/storage/v1/object/public/pictures/villa-3.jpg"
                                     signature={true}
                                     icon={<Lock size={20} />}
                                     title="Horizon Houses"
