@@ -43,6 +43,7 @@ function MainSwiper(props: MainSwiperType) {
             className={`
                 mySwiper
                 [&_.swiper-pagination-bullet]:first:hidden!
+                [&_.swiper-pagination-bullets]:w-fit!
                 [&_.swiper-pagination-bullets]:transition-all!
                 [&_.swiper-pagination-bullets]:duration-1000!
                 ${

@@ -50,7 +50,7 @@ function LobbySlide() {
                     <div className="absolute inset-0">
                         <Image
                             // src={imageSource}
-                            src="/watercourtyard.jpg"
+                            src="https://adaorfpiaidcjralrdcp.supabase.co/storage/v1/object/public/pictures/watercourtyard.jpg"
                             alt="Infinity Pool"
                             fill
                             className="w-full h-full object-cover opacity-90"
