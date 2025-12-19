@@ -10,7 +10,7 @@ function HousingSlide() {
     const windowSize = useWindowSize();
 
     return (
-        <section className="h-screen w-screen relative bg-slate-900 text-slate-100">
+        <section className="h-dvh w-screen relative bg-slate-900 text-slate-100">
             <div className="container h-full w-full mx-auto pt-15 pb-5 overflow-hidden">
                 <div className="h-1/6 w-full text-center mb-5 px-3">
                     <span className="text-[.7rem] text-teal-400 font-bold tracking-widest text-sm block mb-2">

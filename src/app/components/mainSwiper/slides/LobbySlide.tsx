@@ -14,7 +14,7 @@ function LobbySlide() {
             : "/watercourtyard.jpg";
 
     return (
-        <section className="h-screen w-screen">
+        <section className="h-dvh w-screen">
             <div className="container h-full w-full mx-auto pt-15 pb-5 px-6">
                 <div
                     className={`

@@ -6,7 +6,7 @@ import PoolCard from "../../PoolCard/PoolCard";
 function PoolSlide() {
     const { isActive } = useSwiperSlide();
     return (
-        <section className="h-screen w-screen bg-linear-to-b from-teal-100 to-white">
+        <section className="h-dvh w-screen bg-linear-to-b from-teal-100 to-white">
             <div className="container h-full w-full mx-auto pt-15 pb-5 px-6">
                 <div className="text-center mb-3">
                     <span className="text-[.7rem] text-teal-600 font-bold tracking-widest text-sm block mb-1">
