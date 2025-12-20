@@ -1,17 +1,24 @@
 "use client";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { X } from "lucide-react";
+import { Calendar, Phone, User, X } from "lucide-react";
 import { useState } from "react";
 import type { Swiper as SwiperType } from "swiper";
+import NavLink from "../NavLink/NavLink";
 
 type SideBarPropTypes = {
-    swiper: SwiperType | null;
     activeIndex?: number;
+    handleSetSlide: (index: number) => void;
 };
 
 function Sidebar(props: SideBarPropTypes) {
-    const { swiper, activeIndex } = props;
+    const { activeIndex, handleSetSlide } = props;
     const [isSideBarOpen, setIsSideBarOpen] = useState(false);
+
+    function handleNavLinkClick(index: number) {
+        handleSetSlide(index);
+        setIsSideBarOpen(false);
+    }
+
     return (
         <div className="h-full relative">
             <Bars3Icon
@@ -39,7 +46,7 @@ function Sidebar(props: SideBarPropTypes) {
             >
                 <div
                     className={`
-                        h-full bg-white w-2/5 shadow-2xl transition-all duration-500 ease-out
+                        flex flex-col h-full bg-white w-2/5 shadow-2xl transition-all duration-500 ease-out
                         ${
                             isSideBarOpen
                                 ? "opacity-100"
@@ -58,6 +65,56 @@ function Sidebar(props: SideBarPropTypes) {
                         >
                             <X size={24} />
                         </button>
+                    </div>
+
+                    <div className="flex flex-col flex-1 py-10 px-6 gap-5">
+                        <NavLink
+                            index={1}
+                            activeIndex={activeIndex}
+                            handleNavLinkClick={handleNavLinkClick}
+                            label="The Arrival"
+                        />
+                        <NavLink
+                            index={2}
+                            activeIndex={activeIndex}
+                            handleNavLinkClick={handleNavLinkClick}
+                            label="Main Lobby"
+                        />
+                        <NavLink
+                            index={3}
+                            activeIndex={activeIndex}
+                            handleNavLinkClick={handleNavLinkClick}
+                            label="Housing"
+                        />
+                        <NavLink
+                            index={4}
+                            activeIndex={activeIndex}
+                            handleNavLinkClick={handleNavLinkClick}
+                            label="Solara Terrace"
+                        />
+                        <NavLink
+                            index={5}
+                            activeIndex={activeIndex}
+                            handleNavLinkClick={handleNavLinkClick}
+                            label="Beach &amp; Cove"
+                        />
+                    </div>
+
+                    <div className="p-6 bg-slate-50 border-t border-slate-200 space-y-4">
+                        <button className="flex items-center justify-center gap-2 w-full py-3 text-slate-600 hover:text-teal-600 font-semibold text-sm tracking-wide border border-slate-300 rounded-lg transition-colors hover:bg-white hover:border-teal-600 hover:shadow-sm">
+                            <User size={18} />
+                            MEMBER LOGIN
+                        </button>
+                        <button className="flex items-center justify-center gap-2 w-full py-3 bg-teal-600 text-white font-bold text-sm tracking-wide rounded-lg hover:bg-teal-700 shadow-md transition-transform active:scale-95">
+                            <Calendar size={18} />
+                            BOOK YOUR STAY
+                        </button>
+
+                        <div className="text-center pt-2">
+                            <p className="text-xs text-slate-400 flex items-center justify-center gap-1">
+                                <Phone size={12} /> Concierge: +1 (555) 000-0000
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>

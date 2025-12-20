@@ -104,7 +104,7 @@ export default function Header(props: HeaderTypes) {
                         </li>
                     </ul>
                 </nav>
-                <Sidebar swiper={swiper} activeIndex={activeIndex} />
+                <Sidebar activeIndex={activeIndex} handleSetSlide={handleSetSlide} />
             </div>
         </header>
     );
