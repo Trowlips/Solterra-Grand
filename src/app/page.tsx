@@ -11,7 +11,7 @@ export default function Home() {
     return (
         <div className="bg-background">
             <Header swiper={swiper} activeIndex={activeIndex} />
-            <main className="h-screen">
+            <main className="h-dvh">
                 <MainSwiper setSwiper={setSwiper} activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
             </main>
         </div>

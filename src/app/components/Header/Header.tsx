@@ -25,11 +25,11 @@ export default function Header(props: HeaderTypes) {
     return (
         <header
             className={`
-                absolute w-screen flex px-3 m-auto z-20 transition-all duration-700 overflow-hidden
+                absolute w-screen flex px-3 m-auto z-50 transition-all duration-700 
                 sm:justify-center 
                 ${
                     activeIndex !== 0
-                        ? "bg-white/95 backdrop-blur-md delay-500 duration-1000 py-1.5 shadow-sm"
+                        ? "bg-white/95 delay-500 duration-1000 py-1.5 shadow-sm"
                         : "bg-transparent delay-500 duration-1000 py-5"
                 }
             `}

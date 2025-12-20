@@ -60,7 +60,7 @@ function ArrivalSlide() {
                             `}
                         >
                             <FeatureCard.Image
-                                src="https://adaorfpiaidcjralrdcp.supabase.co/storage/v1/object/public/pictures/cabana-1.jpg"
+                                src="/cabana-1.jpg"
                                 alt="Crestline Parking Piazza"
                             />
                             <FeatureCard.Content
@@ -124,7 +124,7 @@ function ArrivalSlide() {
                                 description="The great reveal. A 50-foot high 'wall window' offering a panoramic preview of the terraces below."
                             />
                             <FeatureCard.Image
-                                src="https://adaorfpiaidcjralrdcp.supabase.co/storage/v1/object/public/pictures/terrace-showcase.jpg"
+                                src="/terrace-showcase.jpg"
                                 alt="Terrace"
                             />
                         </FeatureCard>
