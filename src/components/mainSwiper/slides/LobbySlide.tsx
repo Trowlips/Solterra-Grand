@@ -1,6 +1,7 @@
+"use client";
 import Image from "next/image";
 
-import { useWindowSize } from "@/app/hooks/useWindowSize";
+import { useWindowSize } from "@/hooks/useWindowSize";
 import { Utensils, Wine } from "lucide-react";
 import { useSwiperSlide } from "swiper/react";
 

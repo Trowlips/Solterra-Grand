@@ -3,21 +3,21 @@ import Link from "next/link";
 
 import Icon from "@/app/icon.png";
 
-type LogoPropTypes = {
-    className?: string;
-    activeIndex?: number;
-    toTheTop: () => void;
-};
+// type LogoPropTypes = {
+//     className?: string;
+//     activeIndex?: number;
+//     toTheTop: () => void;
+// };
 
-function Logo(props: LogoPropTypes) {
-    const { className, activeIndex, toTheTop } = props;
+function Logo() {
+    // const { className, activeIndex, toTheTop } = props;
     return (
         <button
-            onClick={toTheTop}
+            // onClick={toTheTop}
             className={
                 `flex justify-center items-center gap-4 z-10 h-10 cursor-pointer
                 ss:h-15
-                sm:h-18 ` + className
+                sm:h-18 `
             }
         >
             <div
@@ -40,7 +40,7 @@ function Logo(props: LogoPropTypes) {
                     md:text-[1.5rem]
                     lg:text-[1.8rem]
                     xl:text-[2rem]
-                    ${Boolean(activeIndex) ? "text-slate-900" : "text-white"}
+                    ${Boolean(1) ? "text-slate-900" : "text-white"}
                 `}
             >
                 Solterra <span className="text-teal-600">GRAND</span>
