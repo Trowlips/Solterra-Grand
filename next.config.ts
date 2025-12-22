@@ -2,8 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
     /* config options here */
-    // devIndicators: false
-
+    devIndicators: false,
     images: {
         remotePatterns: [
             {
@@ -13,6 +12,15 @@ const nextConfig: NextConfig = {
                 pathname: "/storage/v1/object/public/**",
             },
         ],
+    },
+    async redirects() {
+        return [
+            {
+                source: "/portal",
+                destination: "/portal/news",
+                permanent: true, // true = 301 redirect, false = 307 temporary
+            },
+        ];
     },
 };
 

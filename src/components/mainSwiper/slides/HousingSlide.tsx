@@ -1,10 +1,10 @@
-import { useWindowSize } from "@/app/hooks/useWindowSize";
+"use client"
+import { useWindowSize } from "@/hooks/useWindowSize";
 import { Home, Lock, Wind } from "lucide-react";
-import Image from "next/image";
 import { EffectCards } from "swiper/modules";
 
+import HousingCard from "@/components/HousingCard";
 import { Swiper, SwiperSlide } from "swiper/react";
-import HousingCard from "../../HousingCard/HousingCard";
 
 function HousingSlide() {
     const windowSize = useWindowSize();
@@ -37,7 +37,9 @@ function HousingSlide() {
                             <SwiperSlide className="bg-transparent! ">
                                 <HousingCard
                                     src="https://adaorfpiaidcjralrdcp.supabase.co/storage/v1/object/public/pictures/cabins-2.jpg"
-                                    icon={<Wind className="h-5 w-5 md:h-8 md:w-8" />}
+                                    icon={
+                                        <Wind className="h-5 w-5 md:h-8 md:w-8" />
+                                    }
                                     title="Coastal Cabins"
                                     description="Intimate, rustically elegant
                                             hideaways tucked into the cliffside

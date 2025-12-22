@@ -1,11 +1,9 @@
+"use client"
+import PoolCard from "@/components/PoolCard";
+import { useWindowSize } from "@/hooks/useWindowSize";
 import { Coffee, Droplets, Sun } from "lucide-react";
-import Image from "next/image";
-import { useSwiperSlide } from "swiper/react";
-import PoolCard from "../../PoolCard/PoolCard";
-import { useWindowSize } from "@/app/hooks/useWindowSize";
 
 function PoolSlide() {
-    const { isActive } = useSwiperSlide();
     const windowSize = useWindowSize();
     return (
         <section className="h-dvh w-screen bg-linear-to-b from-teal-100 to-white">

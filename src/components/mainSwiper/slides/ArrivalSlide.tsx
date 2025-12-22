@@ -1,5 +1,5 @@
 import { useSwiperSlide } from "swiper/react";
-import FeatureCard from "../../FeatureCard/FeatureCard";
+import FeatureCard from "@/components/FeatureCard";
 import { Shield, ShoppingBag, Wind } from "lucide-react";
 
 function ArrivalSlide() {

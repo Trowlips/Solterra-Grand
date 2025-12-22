@@ -1,21 +1,21 @@
 "use client";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { Calendar, Phone, User, X } from "lucide-react";
-import { useState } from "react";
-import type { Swiper as SwiperType } from "swiper";
-import NavLink from "../NavLink/NavLink";
+import NavLink from "@/components/Header/NavLink";
+import { useSwiperStore } from "@/store/useSwiperStore";
+import { Bars3Icon } from "@heroicons/react/24/outline";
+import { Calendar, Phone, X } from "lucide-react";
+import React, { useState } from "react";
 
 type SideBarPropTypes = {
-    activeIndex?: number;
-    handleSetSlide: (index: number) => void;
+    children: React.ReactNode;
 };
 
-function Sidebar(props: SideBarPropTypes) {
-    const { activeIndex, handleSetSlide } = props;
+function Sidebar({ children }: SideBarPropTypes) {
     const [isSideBarOpen, setIsSideBarOpen] = useState(false);
+    const activeIndex = useSwiperStore((state) => state.activeIndex);
+    const swiper = useSwiperStore((state) => state.swiper);
 
     function handleNavLinkClick(index: number) {
-        handleSetSlide(index);
+        swiper?.slideTo(index);
         setIsSideBarOpen(false);
     }
 
@@ -31,12 +31,10 @@ function Sidebar(props: SideBarPropTypes) {
                     2xl:right-12
                     `}
             />
-            {/* ${Boolean(activeIndex) ? "text-black" : "text-white"} */}
-            {/* <span>{`${isSideBarOpen}`}</span> */}
 
             <div
                 className={`
-                    fixed z-10 top-0 right-0 h-dvh w-dvw flex justify-end transition-all duration-500
+                    fixed z-10 top-0 right-0 h-dvh w-dvw flex justify-end transition-opacity duration-500
                     ${
                         isSideBarOpen
                             ? "backdrop-blur-[2px] shadow-lg opacity-100"
@@ -63,7 +61,7 @@ function Sidebar(props: SideBarPropTypes) {
                             onClick={() => setIsSideBarOpen(false)}
                             className="text-slate-400 hover:text-teal-600 transition-colors"
                         >
-                            <X size={24} />
+                            <X size={24} className="cursor-pointer" />
                         </button>
                     </div>
 
@@ -101,15 +99,7 @@ function Sidebar(props: SideBarPropTypes) {
                     </div>
 
                     <div className="p-6 bg-slate-50 border-t border-slate-200 space-y-4">
-                        <button className="flex items-center justify-center gap-2 w-full py-3 text-slate-600 hover:text-teal-600 font-semibold text-sm tracking-wide border border-slate-300 rounded-lg transition-colors hover:bg-white hover:border-teal-600 hover:shadow-sm">
-                            <User size={18} />
-                            MEMBER LOGIN
-                        </button>
-                        <button className="flex items-center justify-center gap-2 w-full py-3 bg-teal-600 text-white font-bold text-sm tracking-wide rounded-lg hover:bg-teal-700 shadow-md transition-transform active:scale-95">
-                            <Calendar size={18} />
-                            BOOK YOUR STAY
-                        </button>
-
+                        {children}
                         <div className="text-center pt-2">
                             <p className="text-xs text-slate-400 flex items-center justify-center gap-1">
                                 <Phone size={12} /> Concierge: +1 (555) 000-0000
