@@ -1,5 +1,4 @@
-import FeatureCard from "@/components/FeatureCard";
-import { ArrowRight } from "lucide-react";
+import NewsCard from "@/components/Portal/NewsCard";
 import Image from "next/image";
 
 const newsItems = [
@@ -33,7 +32,7 @@ function page() {
     return (
         <div className="h-full w-full px-10 animate-fade-in-up">
             <div className="grid gap-8">
-                <div className="relative rounded-2xl overflow-hidden h-96 group cursor-pointer shadow-xl">
+                <div className="relative rounded-2xl overflow-hidden h-60 sm:h-96 group cursor-pointer shadow-xl">
                     <Image
                         src="/funicular-square.jpg"
                         fill
@@ -41,33 +40,31 @@ function page() {
                         duration-700 group-hover:scale-105"
                         alt="News"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
+                    <div className="absolute inset-0 bg-linear-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
                     <div className="absolute bottom-0 left-0 p-8 text-white">
-                        <span className="bg-teal-600 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3 inline-block">
+                        <span className="bg-teal-600 px-3 py-1 rounded-full text-[.5rem] sm:text-xs font-bold uppercase tracking-wider mb-3 inline-block">
                             Resort Update
                         </span>
-                        <h3 className="text-3xl font-serif font-bold mb-2">
+                        <h3 className="text-sm sm:text-3xl font-serif font-bold mb-2">
                             Funicular Maintenance Complete
                         </h3>
-                        <p className="text-slate-200 max-w-2xl">
+                        <p className="text-[.6rem] sm:text-base text-slate-200">
                             The central funicular has been upgraded with new
                             panoramic glass cars. Service to the beach is now
                             faster and offers even clearer views of the cove.
                         </p>
                     </div>
                 </div>
-                <div className="">
+                <div className="flex flex-col sm:flex-row gap-5">
                     {newsItems.map((item) => (
-                        <FeatureCard key={item.id}>
-                            <FeatureCard.Image
-                                src={item.img}
-                                alt="Crestline Parking Piazza"
-                            />
-                            <FeatureCard.Content
-                                title="Crestline Parking Piazza"
-                                description="An open-air arrival court of white stone. Staffed by discreet valets, offering your first hint of the luxury within."
-                            />
-                        </FeatureCard>
+                        <NewsCard
+                            key={item.id}
+                            img={item.img}
+                            title={item.title}
+                            desc={item.desc}
+                            tag={item.tag}
+                            date={item.date}
+                        />
                     ))}
                 </div>
             </div>

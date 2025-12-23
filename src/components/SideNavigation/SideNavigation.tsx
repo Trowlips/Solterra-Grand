@@ -4,7 +4,6 @@ import { usePortal } from "@/Context/PortalContext";
 import { LayoutGrid, Newspaper, User, Waves } from "lucide-react";
 import Image from "next/image";
 import SideNavLink from "./SideNavLink";
-import SideNavToggler from "./SideNavToggler";
 
 const navLinks = [
     {
@@ -29,9 +28,9 @@ function SideNavigation({ children }: { children: React.ReactNode }) {
 
     return (
         <aside
-            className={`relative transition-[transform_opacity] duration-500 ${
+            className={`absolute h-full sm:relative transition-[transform_opacity] bg-white duration-500 z-20 ${
                 drawerOpen
-                    ? "w-1/3"
+                    ? "w-2/3 sm:w-[45%]"
                     : "-translate-x-full w-0 opacity-0 border-none"
             }`}
         >
@@ -41,13 +40,14 @@ function SideNavigation({ children }: { children: React.ReactNode }) {
                 ${drawerOpen ? "opacity-100 delay-100" : "opacity-0"}
             `}
             >
-                <div className="px-8 py-4">
-                    <div className="flex items-center gap-3 mb-8">
-                        <div className="h-13 w-13 rounded-full overflow-hidden border-2 border-teal-600 shadow-sm">
+                <div className="px-4 pt-8">
+                    <div className="flex items-center gap-3 mb-5">
+                        <div className="relative h-10 w-10  rounded-full overflow-hidden border-2 border-teal-600 shadow-sm">
                             <Image
                                 src={Icon}
                                 alt="Solterra Logo"
-                                className="w-full h-full object-cover"
+                                fill
+                                className="object-cover"
                             />
                         </div>
                         <div>

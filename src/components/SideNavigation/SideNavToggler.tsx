@@ -8,23 +8,19 @@ function SideNavToggler() {
 
     return (
         <div
-            className={`absolute flex z-30 transition-all duration-500 ${
-                drawerOpen ? "top-3 left-1/5" : "top-3 left-3"
+            className={`absolute flex z-30 rounded-2xl transition-all duration-500 ${
+                drawerOpen
+                    ? "top-5 left-[calc(1/2*100%+1rem)] sm:left-1/4"
+                    : "top-5 left-6 bg-gray-400/20 hover:bg-gray-400/40"
             }`}
         >
             {drawerOpen ? (
                 <button onClick={toggleDrawer}>
-                    <ChevronsLeft
-                        size={35}
-                        className="text-black/30 hover:text-black/50 transition-colors duration-300 ease-in cursor-pointer"
-                    />
+                    <ChevronsLeft className="h-8 w-8 sm:h-9 sm:w-9 text-black/30 hover:text-black/50 transition-colors duration-300 ease-in cursor-pointer" />
                 </button>
             ) : (
                 <button onClick={toggleDrawer}>
-                    <ChevronsRight
-                        size={35}
-                        className="text-black/30 hover:text-black/50 transition-colors duration-300 ease-in cursor-pointer"
-                    />
+                    <ChevronsRight className="h-8 w-8 sm:h-9 sm:w-9 text-black/30 hover:text-white/50 transition-colors duration-300 ease-in cursor-pointer" />
                 </button>
             )}
         </div>

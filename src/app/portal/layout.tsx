@@ -14,7 +14,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <SideNavigation>
                     <SignOutButton />
                 </SideNavigation>
-                <main className="overflow-y-auto">
+                <main className="overflow-y-auto w-full">
                     <PortalHeader />
                     {children}
                 </main>
