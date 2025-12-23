@@ -1,9 +1,8 @@
-import type { Swiper as SwiperType } from "swiper";
 import Logo from "@/components/Header/Logo";
 import Sidebar from "@/components/Header/Sidebar";
 import SwiperNavButton from "@/components/Header/SwiperNavButton";
-import UserButton from "../UserButton";
 import { Calendar } from "lucide-react";
+import UserButton from "../UserButton";
 
 export default function Header() {
     return (
