@@ -9,7 +9,6 @@ function page() {
                         Your Reservations
                     </h3>
                     <button
-                        onClick={console.log("Hello world")}
                         className="text-teal-600 text-sm font-bold hover:underline"
                     >
                         + New Booking
@@ -24,7 +23,6 @@ function page() {
                         You have no upcoming stays.
                     </p>
                     <button
-                        onClick={console.log("Hello world")}
                         className="text-teal-600 font-bold text-sm"
                     >
                         Browse Residences
