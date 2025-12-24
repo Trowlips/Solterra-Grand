@@ -2,7 +2,7 @@ import { auth } from "@/_lib/auth";
 import { User } from "lucide-react";
 import Link from "next/link";
 
-export default async function UserButton() {
+export default async function MemberButton() {
     const session = await auth();
     console.log("SESSION: ", session);
 

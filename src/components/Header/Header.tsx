@@ -1,26 +1,18 @@
 import Logo from "@/components/Header/Logo";
 import Sidebar from "@/components/Header/Sidebar";
 import SwiperNavButton from "@/components/Header/SwiperNavButton";
-import { Calendar } from "lucide-react";
-import UserButton from "../UserButton";
+import BookNowButton from "../BookNowButton";
+import MemberButton from "../MemberButton";
+import HeaderUserButton from "./HeaderUserButton";
+import HeaderWrapper from "./HeaderWrapper";
 
 export default function Header() {
     return (
-        <header
-            className={`
-                absolute top-0 w-screen flex px-3 m-auto z-50 transition-all duration-700 
-                sm:justify-center 
-                ${
-                    true
-                        ? "bg-white/95 delay-500 duration-1000 py-1.5 shadow-sm"
-                        : "bg-transparent delay-500 duration-1000 py-5"
-                }
-            `}
-        >
+        <HeaderWrapper>
             <div
                 className="
                     flex flex-row w-full justify-between items-center
-                    sm:w-11/12
+                    sm:w-11/12 md:justify-around md:w-full
                     "
             >
                 {/* <Logo activeIndex={1} toTheTop={toTheTop} /> */}
@@ -53,14 +45,13 @@ export default function Header() {
                         </li>
                     </ul>
                 </nav>
-                <Sidebar>
-                    <UserButton />
-                    <button className="flex items-center justify-center gap-2 w-full py-3 bg-teal-600 text-white font-bold text-sm tracking-wide rounded-lg hover:bg-teal-700 shadow-md transition-transform active:scale-95">
-                        <Calendar size={18} />
-                        BOOK YOUR STAY
-                    </button>
+                <Sidebar
+                    MemberButton={<MemberButton />}
+                    BookingButton={<BookNowButton />}
+                >
+                    <HeaderUserButton />
                 </Sidebar>
             </div>
-        </header>
+        </HeaderWrapper>
     );
 }
