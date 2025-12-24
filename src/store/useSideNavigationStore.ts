@@ -5,7 +5,7 @@ type SwiperStoreType = {
     toggleOpen: () => void;
 };
 
-export const useSwiperStore = create<SwiperStoreType>((set) => ({
+export const useSideNavigationStore = create<SwiperStoreType>((set) => ({
     isOpen: false,
     toggleOpen: () => set((state) => ({ isOpen: !state.isOpen })),
 }));

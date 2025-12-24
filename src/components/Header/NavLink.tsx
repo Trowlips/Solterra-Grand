@@ -10,7 +10,7 @@ function NavLink(props: NavLinkPropsType) {
     return (
         <button
             onClick={() => handleNavLinkClick(index)}
-            className={`text-lg text-left font-semibold tracking-widest uppercase transition-colors hover:text-teal-600 border-b border-slate-100 w-full py-3
+            className={`text-sm sm:text-lg text-left font-semibold tracking-widest uppercase transition-colors hover:text-teal-600 border-b border-slate-100 w-full py-3
         ${activeIndex === index ? "text-teal-600" : "text-slate-600"}
       `}
         >

@@ -1,6 +1,8 @@
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
+import { useSwiper } from "swiper/react";
 
 function FrontSlide() {
+    const swiper = useSwiper();
     return (
         <section className="relative h-dvh flex items-center justify-center overflow-hidden">
             <div className="absolute inset-0 z-0">
@@ -21,8 +23,8 @@ function FrontSlide() {
                     A vertical journey from the clouds to the cove.
                 </p>
                 <button
-                    // onClick={() => swiper.slideTo(1)}
-                    className="group flex flex-col items-center gap-2 mx-auto text-sm tracking-[0.2em] text-teal-300 lg:text-white hover:text-teal-300 transition-colors cursor-pointer"
+                    onClick={() => swiper.slideTo(1)}
+                    className="group flex flex-col items-center gap-2 mx-auto text-sm tracking-[0.2em] text-white hover:text-teal-300 transition-colors cursor-pointer"
                 >
                     BEGIN THE DESCENT
                     <ChevronDownIcon className="animate-bounce mt-10 h-10 w-10" />
