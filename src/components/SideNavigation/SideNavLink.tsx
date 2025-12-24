@@ -24,7 +24,7 @@ function SideNavLink(props: SideNavLinkPropsType) {
             }`}
         >
             {Icon}
-            <span className="font-medium tracking-wide">{label}</span>
+            <span className="text-[.7rem] font-medium tracking-wide">{label}</span>
         </Link>
     );
 }
