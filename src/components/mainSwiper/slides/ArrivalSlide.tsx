@@ -19,7 +19,11 @@ function ArrivalSlide() {
                     <div
                         className={`
                             w-full md:w-1/3 transition-all duration-700 opacity-0
-                            ${isActive ? "opacity-100 delay-1000" : "delay-1000"}
+                            ${
+                                isActive
+                                    ? "opacity-100 delay-1000"
+                                    : "delay-1000"
+                            }
                             ${
                                 isPrev
                                     ? "-translate-y-10"
@@ -60,7 +64,7 @@ function ArrivalSlide() {
                             `}
                         >
                             <FeatureCard.Image
-                                src="/cabana-1.jpg"
+                                src="https://adaorfpiaidcjralrdcp.supabase.co/storage/v1/object/public/pictures/cabana-1.jpg"
                                 alt="Crestline Parking Piazza"
                             />
                             <FeatureCard.Content
@@ -124,7 +128,7 @@ function ArrivalSlide() {
                                 description="The great reveal. A 50-foot high 'wall window' offering a panoramic preview of the terraces below."
                             />
                             <FeatureCard.Image
-                                src="/terrace-showcase.jpg"
+                                src="https://adaorfpiaidcjralrdcp.supabase.co/storage/v1/object/public/pictures/terrace-showcase.jpg"
                                 alt="Terrace"
                             />
                         </FeatureCard>
