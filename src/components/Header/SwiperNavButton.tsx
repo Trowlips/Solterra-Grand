@@ -15,7 +15,7 @@ export default function SwiperNavButton(props: SwiperControlPropsType) {
     return (
         <button
             onClick={() => swiper.slideTo(index)}
-            className={`${activeIndex === index ? "text-teal-600" : ""}`}
+            className={`cursor-pointer ${activeIndex === index ? "text-teal-600" : ""}`}
         >
             {children}
         </button>
