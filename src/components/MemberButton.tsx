@@ -4,7 +4,6 @@ import Link from "next/link";
 
 export default async function MemberButton() {
     const session = await auth();
-    console.log("SESSION: ", session);
 
     return (
         <Link

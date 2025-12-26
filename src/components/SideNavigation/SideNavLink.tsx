@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ComponentType } from "react";
 
 type SideNavLinkPropsType = {
     to: string;
@@ -13,7 +12,6 @@ function SideNavLink(props: SideNavLinkPropsType) {
     const { to, label, Icon } = props;
 
     const pathname = usePathname();
-    console.log(pathname);
     return (
         <Link
             href={to}
