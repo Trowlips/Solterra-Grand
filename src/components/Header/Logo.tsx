@@ -30,7 +30,7 @@ function Logo() {
             </div>
             <span
                 className={`
-                    text-xl font-semibold text-primary-100 transition-colors duration-1000
+                    text-xl font-semibold text-primary-100 transition-colors duration-500
                     md:text-[1.3rem]
                     lg:text-[1.8rem]
                     xl:text-[2rem]
