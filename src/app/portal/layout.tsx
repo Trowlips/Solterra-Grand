@@ -55,7 +55,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                         <SignOutButton />
                     </div>
                 </SideNavigation>
-                <main className="overflow-y-auto w-full">
+                <main className="overflow-y-auto h-full w-full py-5">
                     <PortalHeader />
                     {children}
                 </main>

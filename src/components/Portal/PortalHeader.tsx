@@ -7,7 +7,7 @@ export default async function PortalHeader() {
     const session = await auth();
     console.log(session?.user?.image);
     return (
-        <header className="overflow-y-auto bg-slate-50/50 py-8 px-8 lg:p-12 relative">
+        <header className="overflow-y-auto bg-slate-50/50 py-8 px-8 lg:px-10 lg:pb-5 relative">
             <div className="flex justify-between items-center mt-5">
                 <PortalHeaderTitle />
 
