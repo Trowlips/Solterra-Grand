@@ -5,7 +5,6 @@ import Link from "next/link";
 
 export default async function HeaderUserButton() {
     const session = await auth();
-    console.log("HeaderUserButton: ", session);
     return (
         <div className="lg:flex items-center gap-4">
             <Link
