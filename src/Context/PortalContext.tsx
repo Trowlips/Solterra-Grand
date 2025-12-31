@@ -15,7 +15,7 @@ function PortalProvider({ children }: { children: React.ReactNode }) {
     const [drawerOpen, setDrawerOpen] = useState(true);
     const [bookingModalOpen, setBookingModelOpen] = useState(false);
     const toggleDrawer = () => setDrawerOpen((prev) => !prev);
-    const toggleBookingModal = () => setDrawerOpen((prev) => !prev);
+    const toggleBookingModal = () => setBookingModelOpen((prev) => !prev);
 
     return (
         <PortalContext.Provider
