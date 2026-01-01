@@ -10,6 +10,7 @@ import SideNavLink from "@/components/SideNavigation/SideNavLink";
 import SideNavLogo from "@/components/SideNavigation/SideNavLogo";
 import WelcomeBack from "@/components/SideNavigation/WelcomeBack";
 import { LayoutGrid, Newspaper, User } from "lucide-react";
+import BookingModal from "@/components/Booking/BookingModal";
 
 const navLinks = [
     {
@@ -55,7 +56,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                         <SignOutButton />
                     </div>
                 </SideNavigation>
-                <main className="overflow-y-auto h-full w-full py-5">
+                <BookingModal />
+                <main className="overflow-y-auto h-full w-full py-5 z-20">
                     <PortalHeader />
                     {children}
                 </main>
