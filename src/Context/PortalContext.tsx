@@ -1,10 +1,19 @@
 "use client";
 
-import React, { createContext, useContext, useState } from "react";
+import { Residence } from "@/services/residence";
+import React, {
+    createContext,
+    Dispatch,
+    SetStateAction,
+    useContext,
+    useState,
+} from "react";
 
 type PortalContextType = {
     drawerOpen: boolean;
     bookingModalOpen: boolean;
+    unit: Residence | null;
+    setUnit: Dispatch<SetStateAction<Residence | null>>;
     toggleDrawer: () => void;
     toggleBookingModal: () => void;
 };
@@ -12,8 +21,10 @@ type PortalContextType = {
 const PortalContext = createContext<PortalContextType | null>(null);
 
 function PortalProvider({ children }: { children: React.ReactNode }) {
-    const [drawerOpen, setDrawerOpen] = useState(true);
+    const [drawerOpen, setDrawerOpen] = useState<boolean>(true);
     const [bookingModalOpen, setBookingModelOpen] = useState(false);
+    const [unit, setUnit] = useState<Residence | null>(null);
+
     const toggleDrawer = () => setDrawerOpen((prev) => !prev);
     const toggleBookingModal = () => setBookingModelOpen((prev) => !prev);
 
@@ -22,6 +33,8 @@ function PortalProvider({ children }: { children: React.ReactNode }) {
             value={{
                 drawerOpen,
                 bookingModalOpen,
+                unit,
+                setUnit,
                 toggleDrawer,
                 toggleBookingModal,
             }}

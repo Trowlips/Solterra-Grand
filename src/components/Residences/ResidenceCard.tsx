@@ -112,7 +112,7 @@ function ResidenceCard(props: ResidenceCardPropsType) {
                     <button className="px-6 py-2 border border-slate-300 rounded-lg text-slate-700 font-bold text-sm hover:bg-slate-50 transition-colors">
                         View Details
                     </button>
-                    <BookCTA />
+                    <BookCTA unit={unit}/>
                 </div>
             </div>
         </div>
