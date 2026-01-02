@@ -37,6 +37,13 @@ const authConfig: NextAuthConfig = {
                 return false;
             }
         },
+        async session({ session, user }) {
+            const member = await getMember(session.user.email);
+            session.user.memberId = member.id;
+            session.user.memberTier = member.mem_type;
+            session.user.memberPoints = 0;
+            return session;
+        },
     },
     pages: {
         signIn: "/login",
