@@ -1,16 +1,25 @@
 import { auth } from "@/_lib/auth";
-import { User } from "lucide-react";
-import React from "react";
+import { UserCircle } from "lucide-react";
+import Image from "next/image";
 
 async function MemberTierCard() {
     const session = await auth();
     console.log("Mem Tier: ", session);
     return (
         <div className="bg-white rounded-2xl p-8 border border-slate-100 shadow-sm">
-            <div className="text-center mb-6">
-                <div className="w-20 h-20 bg-slate-200 rounded-full mx-auto mb-3 overflow-hidden">
-                    <img src={session?.user.image} alt="Avatar" />
-                </div>
+            <div className="flex flex-col justify-center items-center mb-6">
+                {session?.user?.image ? (
+                    <div className="relative h-20 w-20 rounded-full">
+                        <Image
+                            src={session?.user.image}
+                            alt="Avatar"
+                            fill
+                            className="object-cover rounded-full"
+                        />
+                    </div>
+                ) : (
+                    <UserCircle className="h-12 w-12" />
+                )}
                 <h3 className="font-bold text-lg text-slate-900">
                     {/* {session?.} */}
                 </h3>
