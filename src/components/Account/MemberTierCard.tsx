@@ -20,11 +20,11 @@ async function MemberTierCard() {
                 ) : (
                     <UserCircle className="h-12 w-12" />
                 )}
-                <h3 className="font-bold text-lg text-slate-900">
-                    {/* {session?.} */}
+                <h3 className="font-bold text-base text-slate-900">
+                    {session?.user.name}
                 </h3>
-                <p className="text-sm text-slate-500">
-                    {/* {userProfile?.email} */}
+                <p className="text-xs text-slate-500">
+                    {session?.user.email}
                 </p>
             </div>
 
