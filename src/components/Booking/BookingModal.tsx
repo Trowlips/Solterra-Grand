@@ -5,14 +5,15 @@ import capitalize from "@/helper/capitalize";
 import { X } from "lucide-react";
 import React, { useState } from "react";
 import BookingRate from "./BookingRate";
+import BookingButton from "./BookingButton";
+import { createBooking } from "@/_lib/actions";
 
 export default function BookingModal() {
     const { bookingModalOpen, toggleBookingModal, unit } = usePortal();
-    const [night, setNight] = useState<number>(1);
-    const [guest, setGuest] = useState<number>(1);
-    // console.log(unit);
+    const [numNights, setNumNights] = useState<number>(1);
+    const [numGuest, setNumGuests] = useState<number>(1);
 
-    const totalPrice = unit && unit?.regularPrice * night * guest;
+    const totalPrice = unit && unit?.regularPrice * numNights * numGuest;
 
     function handlePropagation(e: React.MouseEvent<HTMLDivElement>) {
         e.stopPropagation();
@@ -25,10 +26,17 @@ export default function BookingModal() {
         toggleBookingModal();
 
         setTimeout(() => {
-            setNight(1);
-            setGuest(1);
+            setNumNights(1);
+            setNumGuests(1);
         }, 500);
     }
+
+    const bookingData = {
+        totalPrice,
+        unit,
+    };
+
+    const createBookingWithData = createBooking.bind(null, bookingData);
 
     return (
         <div
@@ -61,16 +69,18 @@ export default function BookingModal() {
                         Trip Details
                     </h4>
 
-                    <form action="">
+                    <form action={createBookingWithData}>
                         <div className="grid grid-cols-2 gap-6">
                             <div>
                                 <label className="block text-xs font-bold text-slate-500 uppercase mb-2">
                                     Check-in Date
                                 </label>
                                 <input
+                                    name="startDate"
                                     type="date"
+                                    required
                                     onChange={(e) =>
-                                        console.log(typeof e.target.value)
+                                        console.log(e.target.value)
                                     }
                                     className="w-full p-3 border border-slate-200 rounded-lg focus:outline-none focus:border-teal-500"
                                 />
@@ -80,9 +90,10 @@ export default function BookingModal() {
                                     Duration (Nights)
                                 </label>
                                 <select
-                                    value={night}
+                                    name="numNights"
+                                    value={numNights}
                                     onChange={(e) =>
-                                        setNight(Number(e.target.value))
+                                        setNumNights(Number(e.target.value))
                                     }
                                     className="w-full p-3 border border-slate-200 rounded-lg focus:outline-none focus:border-teal-500"
                                 >
@@ -99,9 +110,10 @@ export default function BookingModal() {
                                         Guests
                                     </label>
                                     <select
-                                        value={guest}
+                                        name="numGuests"
+                                        value={numGuest}
                                         onChange={(e) =>
-                                            setGuest(Number(e.target.value))
+                                            setNumGuests(Number(e.target.value))
                                         }
                                         className="w-full p-3 border border-slate-200 rounded-lg focus:outline-none focus:border-teal-500"
                                     >
@@ -129,8 +141,8 @@ export default function BookingModal() {
                                 <span className="text-slate-600">Rate</span>
                                 <BookingRate
                                     unit={unit}
-                                    night={night}
-                                    guest={guest}
+                                    night={numNights}
+                                    guest={numGuest}
                                 />
                             </div>
 
@@ -144,19 +156,7 @@ export default function BookingModal() {
                             </div>
                         </div>
 
-                        <div className="flex gap-4 mt-6">
-                            {/* <button
-                                onClick={(e) => {
-                                    e.stopPropagation();
-                                }}
-                                className="flex-1 bg-white border border-slate-300 text-slate-600 py-3 rounded-xl font-bold cursor-pointer hover:bg-slate-50"
-                            >
-                                Back
-                            </button> */}
-                            <button className="flex-2 bg-teal-600 text-white py-3 rounded-xl font-bold hover:bg-teal-700">
-                                Confirm Reservation
-                            </button>
-                        </div>
+                        <BookingButton />
                     </form>
                 </div>
             </div>
