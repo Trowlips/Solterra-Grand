@@ -1,6 +1,7 @@
 import { supabase } from "@/_lib/supabase";
+import { cache } from "react";
 
-export async function getMember(email: string) {
+async function getMemberData(email: string) {
     const { data, error } = await supabase
         .from("members")
         .select("*")
@@ -10,6 +11,8 @@ export async function getMember(email: string) {
     // No error here! We handle the possibility of no guest in the sign in callback
     return data;
 }
+
+export const getMember = cache(getMemberData);
 
 type NewMemberType = {
     email: string;
