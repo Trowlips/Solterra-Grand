@@ -1,10 +1,17 @@
+import { auth } from "@/_lib/auth";
 import MemberTierCard from "@/components/Account/MemberTierCard";
-import ReservationList from "@/components/Account/ReservationList";
+import ReservationBox from "@/components/Reservation/ReservationBox";
+import { getBookings } from "@/services/booking";
 
-function page() {
+async function page() {
+    const session = await auth();
+    const bookings = await getBookings(session?.user.memberId);
+
+    console.log("bookings: ", bookings);
+
     return (
         <div className="h-full w-full px-10 space-y-8 overflow-y-auto">
-            <ReservationList />
+            <ReservationBox bookings={bookings} />
             <MemberTierCard />
         </div>
     );
