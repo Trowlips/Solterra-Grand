@@ -4,7 +4,7 @@ import Image from "next/image";
 
 async function MemberTierCard() {
     const session = await auth();
-    console.log("Mem Tier: ", session);
+    // console.log("Mem Tier: ", session);
     return (
         <div className="bg-white rounded-2xl p-8 border border-slate-100 shadow-sm">
             <div className="flex flex-col justify-center items-center mb-6">
