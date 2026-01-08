@@ -3,9 +3,11 @@ import Image from "next/image";
 
 type ReservationCardType = {
     booking: Booking;
+    onDelete: (bookingId: number) => void;
 };
 
-function ReservationCard({ booking }: ReservationCardType) {
+function ReservationCard({ booking, onDelete }: ReservationCardType) {
+
     return (
         <div
             key={booking.id}
@@ -39,7 +41,7 @@ function ReservationCard({ booking }: ReservationCardType) {
                         {booking.numGuests} Guests
                     </span>
                     <button
-                        // onClick={() => onCancelBooking(booking.id)}
+                        onClick={() => onDelete(Number(booking.id))}
                         className="text-xs text-red-400 hover:text-red-600 font-bold cursor-pointer"
                     >
                         Cancel
