@@ -12,10 +12,10 @@ export default async function PortalHeader() {
                 <PortalHeaderTitle />
 
                 <div className="flex items-center gap-4">
-                    <button className="p-2 text-slate-400 hover:text-teal-600 transition-colors relative cursor-pointer">
+                    {/* <button className="p-2 text-slate-400 hover:text-teal-600 transition-colors relative cursor-pointer">
                         <Bell size={20} />
                         <span className="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border border-white" />
-                    </button>
+                    </button> */}
                     <div className="w-px h-8 bg-slate-200"></div>
                     <div className="flex items-center gap-3">
                         <div className="text-right hidden md:block">
