@@ -1,5 +1,4 @@
 import { Residence } from "@/services/residence";
-import { Home, Lock, Wind } from "lucide-react";
 import ResidenceCard from "./ResidenceCard";
 
 type ResidenceListPropsType = {

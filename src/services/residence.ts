@@ -23,7 +23,7 @@ export const getResidences = unstable_cache(
             .select("*")
             .order("name");
 
-        await new Promise((res) => setTimeout(res, 2000));
+        // await new Promise((res) => setTimeout(res, 5000));
 
         if (error) {
             console.error(error);

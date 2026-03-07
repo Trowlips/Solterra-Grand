@@ -1,6 +1,7 @@
 "use client";
 import SignInButton from "@/components/Login/SignInButton";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 function page() {
@@ -72,6 +73,10 @@ function page() {
 
                         <hr className="text-gray-500"/>
                         <SignInButton />
+
+                        <Link href={"/"} className="w-full text-center text-slate-400 text-xs hover:text-white transition-colors">
+                            Return to Resort View
+                        </Link>
                     </div>
                 </div>
             </div>
