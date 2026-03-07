@@ -1,7 +1,7 @@
 "use server"
 import { auth } from "@/_lib/auth";
 import { supabase } from "@/_lib/supabase";
-import { revalidatePath } from "next/cache";
+import { revalidatePath, unstable_cache } from "next/cache";
 
 export type Booking = {
     id: string;
@@ -19,30 +19,38 @@ export type Booking = {
     };
 };
 
-export async function getBookings(memId: number | undefined) {
-    if (!memId) return [];
-    const { data, error, count } = await supabase
-        .from("bookings")
-        .select(
-            "id, created_at, startDate, numNights, numGuests, totalPrice, status, memId, unitId, residences(name, category, thumbnailUrl)"
-        )
-        .eq("memId", memId)
-        .order("startDate");
+export const getBookings = async (memberId: number | undefined) => {
+    const fetchBookings = unstable_cache(
+        async (id) => {
+            const { data, error, count } = await supabase
+                .from("bookings")
+                .select(
+                    "id, created_at, startDate, numNights, numGuests, totalPrice, status, memId, unitId, residences(name, category, thumbnailUrl)"
+                )
+                .eq("memId", id)
+                .order("startDate");
 
-    if (error) {
-        console.error(error);
-        throw new Error("Bookings could not get loaded");
-    }
+            if (error) {
+                console.error(error);
+                throw new Error("Bookings could not get loaded");
+            }
 
-    const flattenedData = data.map((booking) => ({
-        ...booking,
-        residences: Array.isArray(booking.residences)
-            ? booking.residences[0]
-            : booking.residences,
-    }));
+            return data.map((booking) => ({
+                ...booking,
+                residences: Array.isArray(booking.residences)
+                    ? booking.residences[0]
+                    : booking.residences,
+            }));
+        },
+        [`bookings-for-${memberId}`], 
+        {
+            revalidate: 3600, // Optional: Cache for 1 hour
+            tags: [`bookings`, `bookings-${memberId}`], 
+        }
+    );
 
-    return flattenedData;
-}
+    return fetchBookings(memberId);
+};
 
 export async function deleteBooking(bookingId: number) {
     const session = await auth();
