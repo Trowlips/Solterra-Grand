@@ -6,51 +6,73 @@ import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 
 export async function signInAction() {
-    await signIn("google", {
-        redirectTo: "/portal/news",
-    });
+  await signIn("google", {
+    redirectTo: "/portal/news",
+  });
 }
 
 export async function signOutAction() {
-    await signOut({
-        redirectTo: "/",
-    });
+  await signOut({
+    redirectTo: "/",
+  });
 }
 
 type BookingDataType = {
-    totalPrice: number | null;
-    unit: Residence | null;
+  totalPrice: number | null;
+  unit: Residence | null;
 };
 
-export async function createBooking(
-    bookingData: BookingDataType,
-    formData: FormData
-) {
-    console.log("Booking Data: ", bookingData);
-    console.log("formData: ", formData);
+export async function createBooking(bookingData: BookingDataType, formData: FormData) {
+  console.log("Booking Data: ", bookingData);
+  console.log("formData: ", formData);
 
-    const session = await auth();
-    if (!session) throw new Error("You must be logged in");
+  const session = await auth();
+  if (!session) throw new Error("You must be logged in");
 
-    const newBooking = {
-        memId: session.user.memberId,
-        startDate: formData.get("startDate"),
-        numNights: Number(formData.get("numNights")),
-        numGuests: Number(formData.get("numGuests")),
-        extrasPrice: 0,
-        totalPrice: bookingData.totalPrice,
-        status: "unconfirmed",
-        isPaid: false,
-        unitId: bookingData.unit?.id,
-    };
+  const newBooking = {
+    memId: session.user.memberId,
+    startDate: formData.get("startDate"),
+    numNights: Number(formData.get("numNights")),
+    numGuests: Number(formData.get("numGuests")),
+    extrasPrice: 0,
+    totalPrice: bookingData.totalPrice,
+    status: "unconfirmed",
+    isPaid: false,
+    unitId: bookingData.unit?.id,
+  };
 
-    const { error } = await supabase.from("bookings").insert([newBooking]);
+  const { error } = await supabase.from("bookings").insert([newBooking]);
 
-    if (error) {
-        console.error(error);
-        throw new Error("Booking could not be created");
+  if (error) {
+    console.error(error);
+    throw new Error("Booking could not be created");
+  }
+
+  revalidatePath(`/portal/residences`);
+  redirect("/portal/account");
+}
+
+export async function getBookedDates(unitId: string) {
+  const { data, error } = await supabase
+    .from("bookings")
+    .select("startDate, numNights")
+    .eq("unitId", unitId)
+    .neq("status", "cancelled");
+
+  if (error) throw new Error("Failed to fetch booked dates");
+
+  // Transform the bookings into a flat list of date strings (YYYY-MM-DD)
+  const blockedDates = data.flatMap((booking) => {
+    const dates = [];
+    const start = new Date(booking.startDate);
+    // console.log(start);
+    for (let i = 0; i < booking.numNights; i++) {
+      const date = new Date(start);
+      date.setDate(start.getDate() + i);
+      dates.push(date.toISOString().split("T")[0]);
     }
+    return dates;
+  });
 
-    revalidatePath(`/portal/residences`);
-    redirect("/portal/account");
+  return blockedDates;
 }
