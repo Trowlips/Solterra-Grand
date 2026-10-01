@@ -22,6 +22,13 @@ type BookingDataType = {
   unit: Residence | null;
 };
 
+function getEndDate(startDateStr: string, nights: number) {
+  const start = new Date(startDateStr);
+  const end = new Date(start);
+  end.setDate(start.getDate() + nights);
+  return end.toISOString().split("T")[0];
+}
+
 export async function createBooking(bookingData: BookingDataType, formData: FormData) {
   console.log("Booking Data: ", bookingData);
   console.log("formData: ", formData);
@@ -29,16 +36,37 @@ export async function createBooking(bookingData: BookingDataType, formData: Form
   const session = await auth();
   if (!session) throw new Error("You must be logged in");
 
+  const startDate = formData.get("startDate") as string;
+  const numNights = Number(formData.get("numNights"));
+  const unitId = bookingData.unit?.id;
+
+  if (!unitId) throw new Error("Unit not selected");
+
+  const endDate = getEndDate(startDate, numNights);
+
+  const { data: overlaps, error: overlapError } = await supabase
+    .from("bookings")
+    .select("id")
+    .eq("unitId", unitId)
+    .neq("status", "cancelled") // Ignore cancelled bookings
+    .lt("startDate", endDate) // Existing start is before our end
+    .filter("startDate", "gt", startDate);
+
+  if (overlapError) throw new Error("Could not verify availability");
+  if (overlaps && overlaps.length > 0) {
+    throw new Error("These dates are already booked. Please choose another date.");
+  }
+
   const newBooking = {
     memId: session.user.memberId,
-    startDate: formData.get("startDate"),
-    numNights: Number(formData.get("numNights")),
+    startDate,
+    numNights,
     numGuests: Number(formData.get("numGuests")),
     extrasPrice: 0,
     totalPrice: bookingData.totalPrice,
     status: "unconfirmed",
     isPaid: false,
-    unitId: bookingData.unit?.id,
+    unitId,
   };
 
   const { error } = await supabase.from("bookings").insert([newBooking]);
