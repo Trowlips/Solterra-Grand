@@ -9,6 +9,7 @@ import BookingButton from "./BookingButton";
 import { createBooking, getBookedDates } from "@/_lib/actions";
 
 import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 export default function BookingModal() {
   const { bookingModalOpen, toggleBookingModal, unit } = usePortal();
@@ -83,11 +84,18 @@ export default function BookingModal() {
                   selected={startDate}
                   onChange={(date: Date | null) => setStartDate(date)}
                   filterDate={(date) => {
-                    const dateString = date.toISOString().split("T")[0];
+                    const year = date.getFullYear();
+                    const month = String(date.getMonth() + 1).padStart(2, "0");
+                    const day = String(date.getDate()).padStart(2, "0");
+                    const dateString = `${year}-${month}-${day}`;
+
                     return !disabledDates.includes(dateString);
                   }}
-                  className="w-full p-3 border border-slate-200 rounded-lg..."
                   dateFormat="yyyy-MM-dd"
+                  customInput={
+                    <input className="w-full p-3 border border-slate-200 rounded-lg focus:outline-none focus:border-teal-500" />
+                  }
+                  wrapperClassName="w-full"
                 />
               </div>
               <div>
