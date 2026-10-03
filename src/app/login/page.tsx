@@ -19,7 +19,7 @@ function page() {
                 </div>
                 <div className="relative z-10 w-full max-w-md p-8">
                     <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-8 shadow-2xl flex flex-col gap-5">
-                        <div>
+                        {/* <div>
                             <div className="text-center mb-8">
                                 <h2 className="text-3xl font-serif text-white mb-2">
                                     Member Portal
@@ -69,9 +69,9 @@ function page() {
                                     Enter Sanctuary
                                 </button>
                             </form>
-                        </div>
+                        </div> */}
 
-                        <hr className="text-gray-500"/>
+                        {/* <hr className="text-gray-500"/> */}
                         <SignInButton />
 
                         <Link href={"/"} className="w-full text-center text-slate-400 text-xs hover:text-white transition-colors">
