@@ -10,6 +10,7 @@ import { createBooking, getBookedDates } from "@/_lib/actions";
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { CustomBookingDateInput } from "./CustomBookingDateInput";
 
 export default function BookingModal() {
   const { bookingModalOpen, toggleBookingModal, unit } = usePortal();
@@ -32,15 +33,26 @@ export default function BookingModal() {
     }, 500);
   }
 
-  const bookingData = {
-    totalPrice,
-    unit,
-  };
+  function formatDate(date: Date | null) {
+    if (!date) return "";
 
-  const createBookingWithData = createBooking.bind(null, bookingData);
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+
+    return `${year}-${month}-${day}`;
+  }
 
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [disabledDates, setDisabledDates] = useState<string[]>([]);
+
+  const bookingData = {
+    totalPrice,
+    unit,
+    startDate: formatDate(startDate),
+  };
+
+  const createBookingWithData = createBooking.bind(null, bookingData);
 
   useEffect(() => {
     if (unit?.id) {
@@ -73,13 +85,6 @@ export default function BookingModal() {
             <div className="grid grid-cols-2 gap-6">
               <div>
                 <label className="block text-xs font-bold text-slate-500 uppercase mb-2">Check-in Date</label>
-                {/* <input
-                  name="startDate"
-                  type="date"
-                  required
-                  onChange={(e) => console.log(e.target.value)}
-                  className="w-full p-3 border border-slate-200 rounded-lg focus:outline-none focus:border-teal-500"
-                /> */}
                 <DatePicker
                   selected={startDate}
                   onChange={(date: Date | null) => setStartDate(date)}
@@ -91,11 +96,19 @@ export default function BookingModal() {
 
                     return !disabledDates.includes(dateString);
                   }}
-                  dateFormat="yyyy-MM-dd"
-                  customInput={
-                    <input className="w-full p-3 border border-slate-200 rounded-lg focus:outline-none focus:border-teal-500" />
-                  }
+                  dateFormat="MM-dd-yyyy"
                   wrapperClassName="w-full"
+                  customInput={<CustomBookingDateInput />}
+                  placeholderText="mm-dd-yyyy"
+                />
+                <input
+                  type="hidden"
+                  name="startDate"
+                  value={
+                    startDate
+                      ? `${startDate.getFullYear()}-${String(startDate.getMonth() + 1).padStart(2, "0")}-${String(startDate.getDate()).padStart(2, "0")}`
+                      : ""
+                  }
                 />
               </div>
               <div>

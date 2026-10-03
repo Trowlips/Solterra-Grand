@@ -20,6 +20,7 @@ export async function signOutAction() {
 type BookingDataType = {
   totalPrice: number | null;
   unit: Residence | null;
+  startDate: string;
 };
 
 function getEndDate(startDateStr: string, nights: number) {
@@ -36,10 +37,11 @@ export async function createBooking(bookingData: BookingDataType, formData: Form
   const session = await auth();
   if (!session) throw new Error("You must be logged in");
 
-  const startDate = formData.get("startDate") as string;
+  const startDate = bookingData.startDate;
   const numNights = Number(formData.get("numNights"));
   const unitId = bookingData.unit?.id;
 
+  if (!startDate) throw new Error("Check-in date is required");
   if (!unitId) throw new Error("Unit not selected");
 
   const endDate = getEndDate(startDate, numNights);
@@ -77,6 +79,7 @@ export async function createBooking(bookingData: BookingDataType, formData: Form
   }
 
   revalidatePath(`/portal/residences`);
+  revalidatePath("/portal/account");
   redirect("/portal/account");
 }
 
